@@ -50,6 +50,6 @@ function main {
 
 }
 
-checkenv
+#checkenv
 #rmenv
-#main
+main
