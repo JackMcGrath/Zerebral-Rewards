@@ -1,3 +1,6 @@
 from django.db import models
+from schools.models import School
 
-# Create your models here.
+# teacher
+class Teacher(models.Model):
+    school = models.ForeignKey(School)
