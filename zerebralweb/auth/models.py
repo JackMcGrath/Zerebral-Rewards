@@ -17,10 +17,10 @@ class ZerebralUser(models.Model):
     zerebral_id = models.CharField(max_length=50, unique=True)
 
     # link to the actual profile depending on the user type
-    school = models.ForeignKey(School)
-    teacher = models.ForeignKey(Teacher)
-    parent = models.ForeignKey(Parent)
-    student = models.ForeignKey(Student)
+    school = models.ForeignKey(School, blank=True, null=True)
+    teacher = models.ForeignKey(Teacher, blank=True, null=True)
+    parent = models.ForeignKey(Parent, blank=True, null=True)
+    student = models.ForeignKey(Student, blank=True, null=True)
 
 
 
