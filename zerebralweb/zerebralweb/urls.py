@@ -5,13 +5,20 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'zerebralweb.views.home', name='home'),
-    # url(r'^zerebralweb/', include('zerebralweb.foo.urls')),
+    # enable admin
+    url(r'^admin/', include(admin.site.urls)),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    # auth endpoints
+    url(r'^login/$', include('auth.urls')),
+	url(r'^logout/$', include('auth.urls')),
+	url(r'^register/$', include('auth.urls')),
 
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),    
+	# apps for each 
+    url(r'^teacher/', include('teachers.urls')),
+    url(r'^student/', include('students.urls')),
+    url(r'^parent/', include('parents.urls')),
+    url(r'^school/', include('schools.urls')),
+
+    # catch all (we'll forward them to login page)
+    url(r'^$', include('auth.urls')),
 )

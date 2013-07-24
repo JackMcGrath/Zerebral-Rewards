@@ -7,7 +7,13 @@ from schools.models import School
 
 # ZerebralUser is how we link together Django's User model and School, Teacher, Parent, and/or Student profiles
 class ZerebralUser(models.Model):
-	# link up with Django's user model
+    class Meta:
+        permissions = (("is_school", "Has access to school dashboard"),
+                       ("is_teacher", "Has access to teacher dashboard"),
+                       ("is_parent", "Has access to parent dashboard"),
+                       ("is_student", "Has access to student dashboard"),)
+    
+    # link up with Django's user model
     user = models.OneToOneField(User)
 
     # has this user accepted the TOS?
@@ -26,15 +32,15 @@ class ZerebralUser(models.Model):
 
 # used to invite parents, teachers, and students (initiator can be school, parent, or teacher)
 class Invite(models.Model):
-	INVITE_TYPES = (
-	    ('teacher', 'Invite Teacher'),
-	    ('student', 'Invite Student'),
-	    ('parent', 'Invite Parent'),
-	)
-	type = models.CharField(max_length=50, choices=INVITE_TYPES)
+    INVITE_TYPES = (
+        ('teacher', 'Invite Teacher'),
+        ('student', 'Invite Student'),
+        ('parent', 'Invite Parent'),
+    )
+    type = models.CharField(max_length=50, choices=INVITE_TYPES)
 
-	# invitation code
-	code = models.CharField(max_length=50)
+    # invitation code
+    code = models.CharField(max_length=50)
 
-	# who created this invite?
-	initiator = models.ForeignKey(User)
+    # who created this invite?
+    initiator = models.ForeignKey(User)
