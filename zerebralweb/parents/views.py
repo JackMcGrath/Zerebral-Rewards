@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 
 def dashboard(request):
-    return render_to_response('parents/dashboard.html')
+    return render(request, 'parents/dashboard.html')

@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth import logout
 
 
@@ -19,8 +19,8 @@ def login(request):
             return redirect('/student')
 
     # no permissions? not logged in? send them to login page
-    return render_to_response('auth/login.html')
+    return render(request, 'auth/login.html')
 
 
 def register(request):
-    return render_to_response('auth/register.html')
+    return render(request, 'auth/register.html')
