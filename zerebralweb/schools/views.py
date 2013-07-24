@@ -1,1 +1,4 @@
-# Create your views here.
+from django.shortcuts import render_to_response, redirect
+
+def dashboard(request):
+    return render_to_response('schools/dashboard.html')

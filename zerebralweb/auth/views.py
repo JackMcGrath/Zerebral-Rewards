@@ -1,26 +1,26 @@
-from django.http import HttpResponse
+from django.shortcuts import render_to_response, redirect
+from django.contrib.auth import logout
 
 
 def login(request):
-    html = "<html><body>It is now.</body></html>"
-    return HttpResponse(html)
+    if request.user.is_authenticated():
+        # what are you?
+
+        # NOTE: superadmins will ALWAYS have EVERY permission (even if they don't exist!)
+        if request.user.is_active and request.user.is_superuser:
+            return redirect('/admin')
+        elif request.user.has_perm('auth.is_school'):
+            return redirect('/school')
+        elif request.user.has_perm('auth.is_teacher'):
+            return redirect('/teacher')
+        elif request.user.has_perm('auth.is_parent'):
+            return redirect('/parent')
+        elif request.user.has_perm('auth.is_student'):
+            return redirect('/student')
+
+    # no permissions? not logged in? send them to login page
+    return render_to_response('auth/login.html')
 
 
 def register(request):
-    pass
-
-
-def register_school(request):
-    pass
-
-
-def register_teacher(request):
-    pass
-
-
-def register_parent(request):
-    pass
-
-
-def register_student(request):
-    pass
+    return render_to_response('auth/register.html')
