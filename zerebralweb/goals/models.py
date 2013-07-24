@@ -3,12 +3,14 @@ from parents.models import Parent
 from students.models import Student
 
 
+# an action plan consists of multiple Actions (text describing what will be accomplished)
+class Action(models.Model):
+    goal = models.CharField(max_length=500)
+
 # goal oriented models
 class ActionPlan(models.Model):
 	student = models.ForeignKey(Student)
-	goal_one = models.CharField(max_length=500)
-	goal_two = models.CharField(max_length=500)
-	goal_three = models.CharField(max_length=500)
+	goals = models.ManyToManyField(Action)
 	approved = models.BooleanField(default=False)
 
 class GoalCategory(models.Model):
@@ -23,4 +25,5 @@ class Goal(models.Model):
     action_plan = models.ForeignKey(ActionPlan)
     student = models.ForeignKey(Student)
     active = models.BooleanField(default=False)
+    achieved = models.BooleanField(default=False)
     parent = models.ForeignKey(Parent)

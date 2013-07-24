@@ -7,6 +7,7 @@ from schools.models import School
 
 # ZerebralUser is how we link together Django's User model and School, Teacher, Parent, and/or Student profiles
 class ZerebralUser(models.Model):
+    # these are used to control access to views and determine user type
     class Meta:
         permissions = (("is_school", "Has access to school dashboard"),
                        ("is_teacher", "Has access to teacher dashboard"),
@@ -22,7 +23,7 @@ class ZerebralUser(models.Model):
     # zerebral unique ID
     zerebral_id = models.CharField(max_length=50, unique=True)
 
-    # link to the actual profile depending on the user type
+    # link to the actual profile depending on the user type (mutiple are allowed)
     school = models.ForeignKey(School, blank=True, null=True)
     teacher = models.ForeignKey(Teacher, blank=True, null=True)
     parent = models.ForeignKey(Parent, blank=True, null=True)
