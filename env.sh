@@ -1,7 +1,4 @@
 #!/bin/bash
-
-
-
 dependencies=("django" "south" "requests")
 
 function checkenv {
@@ -47,7 +44,6 @@ function main {
 
 	#finally, lets just hop into that env
 	source .python-env/bin/activate
-
 }
 
 #checkenv
