@@ -20,3 +20,13 @@ a.zerebral-logo {
 .iconbar-zerebral .iconbar-unread {
   background-color: #D08729;
 }
+
+.bg-red {
+    background-color: #ed4a13;
+}
+.bg-yellow {
+    background-color: #f4d03f;
+}
+.bg-green {
+    background-color: green;
+}
