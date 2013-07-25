@@ -31,17 +31,21 @@ class ZerebralUser(models.Model):
 
 
 
-# used to invite parents, teachers, and students (initiator can be school, parent, or teacher)
-class Invite(models.Model):
-    INVITE_TYPES = (
-        ('teacher', 'Invite Teacher'),
-        ('student', 'Invite Student'),
-        ('parent', 'Invite Parent'),
-    )
-    type = models.CharField(max_length=50, choices=INVITE_TYPES)
-
+# used to invite parents or teachers
+class TeacherParentInvite(models.Model):
     # invitation code
     code = models.CharField(max_length=50)
 
+    # info that will be pre-filled when clicking an invite link
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254)
+
     # who created this invite?
     initiator = models.ForeignKey(User)
+
+# used to invite students (parent info attached)
+class StudentInvite(TeacherParentInvite):
+    parent_first_name = models.CharField(max_length=100)
+    parent_last_name = models.CharField(max_length=100)
+    parent_email = models.EmailField(max_length=254)

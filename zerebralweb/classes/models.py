@@ -14,6 +14,7 @@ class Term(models.Model):
 
 class Course(models.Model):
     name = models.CharField(max_length=100)
+    course_id = models.CharField(max_length=100)
     students = models.ManyToManyField(Student)
     teacher = models.ForeignKey(Teacher)
     term = models.ForeignKey(Term)

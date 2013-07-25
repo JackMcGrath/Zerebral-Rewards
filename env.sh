@@ -1,5 +1,5 @@
 #!/bin/bash
-dependencies=("django" "south" "requests")
+dependencies=("django" "south" "requests" "django-localflavor-us")
 
 function checkenv {
 	echo "${dependencies[@]}" > one.txt

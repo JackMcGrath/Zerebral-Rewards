@@ -54,9 +54,13 @@ def login(request):
 
 def register(request):
     if request.method == 'POST':
-        # TODO
-        pass
-    else:
-        form = StudentRegisterForm()
+        if request.POST['type'] == 'school':
+            pass
+        elif request.POST['type'] == 'teacher':
+            pass
+        elif request.POST['type'] == 'student':
+            pass
+        elif request.POST['type'] == 'parent':
+            pass
 
     return render(request, 'auth/register.html')

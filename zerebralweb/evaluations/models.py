@@ -13,6 +13,10 @@ class Assessment(models.Model):
 # an evaluation recorded by the teacher for a particular class/student
 class Evaluation(models.Model):
     course = models.ForeignKey(Course)
+    # a teacher can begin an evaulation and save it without submitting it
+    submitted = models.BooleanField(default=False)
     student = models.ForeignKey(Student)
     assessments = models.ManyToManyField(Assessment)
     date = models.DateField(default=datetime.date.today)
+    grade_percent = models.IntegerField()
+    note = models.CharField(max_length=500)
