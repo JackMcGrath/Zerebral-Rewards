@@ -1,0 +1,294 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1070" measuredH="936" mockupW="1024" mockupH="876">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="833" y="730" w="161" h="27" measuredW="113" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <href>Teachers%20Courses%20-%20Add%20Student%20Failure%20Response%26bm%3BTeachers%20Courses%20-%20Add%20Student%20Failure%20Response.bmml%26bm%3BTeachers%20Courses%20-%20Add%20Student%20Failure%20Response.bmml%26bm%3BTeachers%20Courses%20-%20Add%20Student%20Failure%20Response.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22787%2C670%2C948%2C697%22%20href%3D%22Teachers%2520Courses%2520-%2520Add%2520Student%2520Failure%2520Response.bmml%22%20alt%3D%22Teachers%20Courses%20-%20Add%20Student%20Failure%20Response%22%20id%3D%221%22/%3E</map>
+        <text>Invite%20Students</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Component" x="46" y="60" w="1024" h="876" measuredW="1024" measuredH="876" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E</map>
+        <src>./assets/Symbols.bmml#Teacher%20Background</src>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Label" x="634" y="421" w="-1" h="-1" measuredW="148" measuredH="32" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>Add%20Students</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="__group__" x="683" y="470" w="311" h="247" measuredW="311" measuredH="247" zOrder="2" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="311" h="247" measuredW="311" measuredH="247" zOrder="0" locked="false" isInGroup="14">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="311" h="247" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="0"/>
+          </groupChildrenDescriptors>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::DataGrid" x="5" y="5" w="298" h="236" measuredW="320" measuredH="111" zOrder="1" locked="false" isInGroup="14">
+          <controlProperties>
+            <borderStyle>none</borderStyle>
+            <hasHeader>true</hasHeader>
+            <selectedIndex>-1</selectedIndex>
+            <text>First%20Name%2C%20Last%20Name%2C%20Email%20Address%0AJohn%2C%20Smith%2C%20jsmith@anytownms.org%0ABill%2C%20Price%2C%20bprice@anytownms.org%0ASusan%2C%20Fairfield%2C%20sfairfield@anytownms.org</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::RoundButton" x="454" y="270" w="73" h="72" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16750848</borderColor>
+        <color>16750848</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::RoundButton" x="883" y="270" w="73" h="72" measuredW="32" measuredH="32" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>40463</borderColor>
+        <color>40463</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::Icon" x="467" y="281" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16777215</color>
+        <icon>ContactIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Paragraph" x="452" y="357" w="77" h="39" measuredW="200" measuredH="80" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>16</size>
+        <text>Sarah%0ABrown</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Paragraph" x="871" y="290" w="102" h="39" measuredW="200" measuredH="80" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <size>32</size>
+        <text>85%25</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Label" x="645" y="271" w="-1" h="-1" measuredW="130" measuredH="48" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>40</size>
+        <text>Week%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Label" x="584" y="316" w="-1" h="-1" measuredW="247" measuredH="32" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>10066329</color>
+        <size>24</size>
+        <text>Anytown%20Middle%20School</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Paragraph" x="863" y="353" w="115" h="60" measuredW="200" measuredH="80" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>16</size>
+        <text>Avg.%20%0AEngagemet</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::RoundButton" x="179" y="330" w="208" h="53" measuredW="32" measuredH="32" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::RoundButton" x="179" y="528" w="208" h="53" measuredW="32" measuredH="32" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::RoundButton" x="179" y="573" w="208" h="53" measuredW="32" measuredH="32" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::RoundButton" x="179" y="623" w="208" h="53" measuredW="32" measuredH="32" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::RoundButton" x="189" y="343" w="23" h="23" measuredW="32" measuredH="32" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::RoundButton" x="189" y="538" w="23" h="23" measuredW="32" measuredH="32" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="229" y="276" w="-1" h="-1" measuredW="107" measuredH="36" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>28</size>
+        <text>Courses</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="220" y="342" w="-1" h="-1" measuredW="76" measuredH="28" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>6710886</color>
+        <size>20</size>
+        <text>Courses</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="220" y="538" w="-1" h="-1" measuredW="106" measuredH="28" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>6710886</color>
+        <size>20</size>
+        <text>Add%20Course</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::RoundButton" x="179" y="429" w="208" h="53" measuredW="32" measuredH="32" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::RoundButton" x="192" y="394" w="23" h="23" measuredW="32" measuredH="32" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::RoundButton" x="190" y="444" w="23" h="23" measuredW="32" measuredH="32" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::RoundButton" x="190" y="495" w="23" h="23" measuredW="32" measuredH="32" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Label" x="223" y="394" w="-1" h="-1" measuredW="92" measuredH="28" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>16750848</borderColor>
+        <color>6710886</color>
+        <size>20</size>
+        <text>Spanish%20II</text>
+      </controlProperties>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="221" y="443" w="-1" h="-1" measuredW="124" measuredH="28" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>6710886</color>
+        <size>20</size>
+        <text>Spanish%20II%20-%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="221" y="493" w="-1" h="-1" measuredW="66" measuredH="28" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>6710886</color>
+        <size>20</size>
+        <text>English</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::RoundButton" x="190" y="587" w="23" h="23" measuredW="32" measuredH="32" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16750848</borderColor>
+        <color>16750848</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="221" y="585" w="-1" h="-1" measuredW="124" measuredH="28" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>16750848</borderColor>
+        <color>16750848</color>
+        <size>20</size>
+        <text>Add%20Students</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::ComboBox" x="416" y="469" w="121" h="-1" measuredW="115" measuredH="24" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Select%20Course</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::TextInput" x="417" y="531" w="121" h="-1" measuredW="42" measuredH="27" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>John</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::TextInput" x="544" y="531" w="121" h="-1" measuredW="48" measuredH="27" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Smith</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::TextInput" x="417" y="570" w="250" h="-1" measuredW="149" measuredH="27" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>jsmith@anytownms.org</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Button" x="534" y="706" w="130" h="30" measuredW="123" measuredH="27" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <href>Teachers%20Courses%20-%20Add%20Students%20Filled%20Roster%26bm%3BTeachers%20Courses%20-%20Add%20Students%20Filled%20Roster.bmml%26bm%3BTeachers%20Courses%20-%20Add%20Students%20Filled%20Roster.bmml%26bm%3BTeachers%20Courses%20-%20Add%20Students%20Filled%20Roster.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22488%2C646%2C618%2C676%22%20href%3D%22Teachers%2520Courses%2520-%2520Add%2520Students%2520Filled%2520Roster.bmml%22%20alt%3D%22Teachers%20Courses%20-%20Add%20Students%20Filled%20Roster%22%20id%3D%2252%22/%3E</map>
+        <text>Add%20to%20Invite%20List</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::TextInput" x="416" y="673" w="250" h="-1" measuredW="152" measuredH="27" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>ssmith@anytownms.org</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::TextInput" x="415" y="635" w="121" h="-1" measuredW="48" measuredH="27" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sarah</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::TextInput" x="542" y="635" w="121" h="-1" measuredW="48" measuredH="27" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Smith</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Label" x="415" y="504" w="-1" h="-1" measuredW="117" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Student%20Information</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Label" x="415" y="609" w="-1" h="-1" measuredW="108" measuredH="21" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Parent%20Information</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

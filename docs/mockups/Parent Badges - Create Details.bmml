@@ -1,0 +1,287 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1158" measuredH="890" mockupW="1024" mockupH="876">
+  <controls>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::RoundButton" x="268" y="249" w="208" h="53" measuredW="32" measuredH="32" zOrder="1" locked="true" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::RoundButton" x="268" y="299" w="208" h="53" measuredW="32" measuredH="32" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::RoundButton" x="278" y="262" w="23" h="23" measuredW="32" measuredH="32" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::RoundButton" x="278" y="314" w="23" h="23" measuredW="32" measuredH="32" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::Label" x="333" y="209" w="-1" h="-1" measuredW="70" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>20</size>
+        <text>Badges</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Label" x="309" y="261" w="-1" h="-1" measuredW="70" measuredH="28" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>16750848</borderColor>
+        <color>6710886</color>
+        <href>Parent%20Badges%26bm%3BParent%20Badges.bmml%26bm%3BParent%20Badges.bmml%26bm%3BParent%20Badges.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22175%2C247%2C245%2C275%22%20href%3D%22Parent%2520Badges.bmml%22%20alt%3D%22Parent%20Badges%22%20id%3D%2255%22/%3E</map>
+        <size>20</size>
+        <text>Badges</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Label" x="309" y="313" w="-1" h="-1" measuredW="146" measuredH="28" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>16750848</borderColor>
+        <color>6710886</color>
+        <href>Parent%20Badges%20-%20Create%20Badge%26bm%3BParent%20Badges%20-%20Create%20Badge.bmml%26bm%3BParent%20Badges%20-%20Create%20Badge.bmml%26bm%3BParent%20Badges%20-%20Create%20Badge.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22175%2C299%2C321%2C327%22%20href%3D%22Parent%2520Badges%2520-%2520Create%2520Badge.bmml%22%20alt%3D%22Parent%20Badges%20-%20Create%20Badge%22%20id%3D%2256%22/%3E</map>
+        <size>20</size>
+        <text>Custom%20Badges</text>
+      </controlProperties>
+    </control>
+    <control controlID="208" controlTypeID="com.balsamiq.mockups::Component" x="134" y="14" w="1024" h="876" measuredW="1024" measuredH="876" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22620%2C85%2C644%2C109%22%20href%3D%22Parent%2520Notifications.bmml%22%20alt%3D%22Parent%20Notifications%22%20id%3D%229%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2256%2C172%2C88%2C204%22%20href%3D%22Parent%2520Dashboard.bmml%22%20alt%3D%22Parent%20Dashboard%22%20id%3D%22135%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2256%2C230%2C88%2C262%22%20href%3D%22Parent%2520Goal.bmml%22%20alt%3D%22Parent%20Goal%22%20id%3D%22136%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2257%2C292%2C89%2C324%22%20href%3D%22Student%2520Points.bmml%22%20alt%3D%22Student%20Points%22%20id%3D%22137%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2256%2C356%2C88%2C388%22%20href%3D%22Parent%2520Badges.bmml%22%20alt%3D%22Parent%20Badges%22%20id%3D%22138%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22620%2C85%2C644%2C109%22%20href%3D%22Parent%2520Notifications.bmml%22%20alt%3D%22Parent%20Notifications%22%20id%3D%229%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2256%2C172%2C88%2C204%22%20href%3D%22Parent%2520Dashboard.bmml%22%20alt%3D%22Parent%20Dashboard%22%20id%3D%22135%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2256%2C230%2C88%2C262%22%20href%3D%22Parent%2520Goal.bmml%22%20alt%3D%22Parent%20Goal%22%20id%3D%22136%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2257%2C292%2C89%2C324%22%20href%3D%22Student%2520Points.bmml%22%20alt%3D%22Student%20Points%22%20id%3D%22137%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%2256%2C356%2C88%2C388%22%20href%3D%22Parent%2520Badges.bmml%22%20alt%3D%22Parent%20Badges%22%20id%3D%22138%22/%3E%3Carea%20shape%3D%22rect%22%20coords%3D%22929%2C126%2C975%2C145%22%20href%3D%22Sign%2520Up.bmml%22%20alt%3D%22Sign%20Up%22%20id%3D%221%22/%3E</map>
+        <src>./assets/Symbols.bmml#Parent%20Background</src>
+      </controlProperties>
+    </control>
+    <control controlID="209" controlTypeID="com.balsamiq.mockups::RoundButton" x="513" y="215" w="73" h="72" measuredW="32" measuredH="32" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16750848</borderColor>
+        <color>16750848</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="210" controlTypeID="com.balsamiq.mockups::RoundButton" x="994" y="215" w="73" h="72" measuredW="32" measuredH="32" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>13369344</borderColor>
+        <color>13369344</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="211" controlTypeID="com.balsamiq.mockups::Icon" x="526" y="226" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16777215</color>
+        <icon>ContactIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="212" controlTypeID="com.balsamiq.mockups::Paragraph" x="511" y="296" w="77" h="39" measuredW="200" measuredH="80" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>16</size>
+        <text>Johnny%20%0ASmith</text>
+      </controlProperties>
+    </control>
+    <control controlID="213" controlTypeID="com.balsamiq.mockups::Paragraph" x="974" y="296" w="115" h="39" measuredW="200" measuredH="80" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>16</size>
+        <text>Points%20%0AEarned</text>
+      </controlProperties>
+    </control>
+    <control controlID="214" controlTypeID="com.balsamiq.mockups::Paragraph" x="980" y="237" w="102" h="39" measuredW="200" measuredH="80" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16777215</color>
+        <size>32</size>
+        <text>600</text>
+      </controlProperties>
+    </control>
+    <control controlID="215" controlTypeID="com.balsamiq.mockups::Label" x="728" y="216" w="-1" h="-1" measuredW="130" measuredH="48" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>40</size>
+        <text>Week%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="216" controlTypeID="com.balsamiq.mockups::RoundButton" x="648" y="301" w="280" h="28" measuredW="32" measuredH="32" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>13421772</borderColor>
+        <color>16777215</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="217" controlTypeID="com.balsamiq.mockups::RoundButton" x="648" y="301" w="45" h="28" measuredW="32" measuredH="32" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>13421772</borderColor>
+        <color>16750848</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="218" controlTypeID="com.balsamiq.mockups::Icon" x="871" y="223" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <icon>RightArrowIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="219" controlTypeID="com.balsamiq.mockups::Icon" x="677" y="224" w="-1" h="-1" measuredW="32" measuredH="32" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <icon>LeftArrowIcon%7Cmedium</icon>
+      </controlProperties>
+    </control>
+    <control controlID="220" controlTypeID="com.balsamiq.mockups::Label" x="701" y="263" w="-1" h="-1" measuredW="176" measuredH="32" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6710886</color>
+        <size>24</size>
+        <text>150%20out%20of%201%2C000</text>
+      </controlProperties>
+    </control>
+    <control controlID="230" controlTypeID="com.balsamiq.mockups::Label" x="681" y="376" w="-1" h="-1" measuredW="155" measuredH="32" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>3355443</color>
+        <size>24</size>
+        <text>Design%20Badge</text>
+      </controlProperties>
+    </control>
+    <control controlID="271" controlTypeID="com.balsamiq.mockups::RoundButton" x="268" y="349" w="208" h="53" measuredW="32" measuredH="32" zOrder="21" locked="true" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="272" controlTypeID="com.balsamiq.mockups::RoundButton" x="304" y="364" w="23" h="23" measuredW="32" measuredH="32" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="273" controlTypeID="com.balsamiq.mockups::Label" x="335" y="363" w="-1" h="-1" measuredW="65" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <borderColor>16750848</borderColor>
+        <color>6710886</color>
+        <href>Parent%20Badges%20-%20Custom%20Design%26bm%3BParent%20Badges%20-%20Custom%20Design.bmml%26bm%3BParent%20Badges%20-%20Custom%20Design.bmml%26bm%3BParent%20Badges%20-%20Custom%20Design.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22201%2C349%2C266%2C377%22%20href%3D%22Parent%2520Badges%2520-%2520Custom%2520Design.bmml%22%20alt%3D%22Parent%20Badges%20-%20Custom%20Design%22%20id%3D%22273%22/%3E</map>
+        <size>20</size>
+        <text>Design</text>
+      </controlProperties>
+    </control>
+    <control controlID="274" controlTypeID="com.balsamiq.mockups::RoundButton" x="268" y="399" w="208" h="53" measuredW="32" measuredH="32" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="275" controlTypeID="com.balsamiq.mockups::RoundButton" x="304" y="414" w="23" h="23" measuredW="32" measuredH="32" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>16750848</borderColor>
+        <color>16750848</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="276" controlTypeID="com.balsamiq.mockups::Label" x="335" y="413" w="-1" h="-1" measuredW="64" measuredH="28" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>16750848</color>
+        <size>20</size>
+        <text>Details</text>
+      </controlProperties>
+    </control>
+    <control controlID="277" controlTypeID="com.balsamiq.mockups::RoundButton" x="268" y="449" w="208" h="53" measuredW="32" measuredH="32" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>13421772</color>
+        <shape>rectangle</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="278" controlTypeID="com.balsamiq.mockups::RoundButton" x="304" y="464" w="23" h="23" measuredW="32" measuredH="32" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>15658734</borderColor>
+        <color>15658734</color>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="279" controlTypeID="com.balsamiq.mockups::Label" x="335" y="463" w="-1" h="-1" measuredW="64" measuredH="28" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>6710886</color>
+        <size>20</size>
+        <text>Submit</text>
+      </controlProperties>
+    </control>
+    <control controlID="297" controlTypeID="com.balsamiq.mockups::Button" x="730" y="707" w="-1" h="-1" measuredW="98" measuredH="27" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16750848</color>
+        <text>Next%3A%20Submit</text>
+      </controlProperties>
+    </control>
+    <control controlID="331" controlTypeID="com.balsamiq.mockups::RoundButton" x="855" y="465" w="158" h="154" measuredW="32" measuredH="32" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>10027263</borderColor>
+        <color>10027263</color>
+        <shape>roundRect</shape>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="337" controlTypeID="com.balsamiq.mockups::Icon" x="866" y="478" w="-1" h="-1" measuredW="128" measuredH="128" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16777215</color>
+        <icon>MusicIcon%7Cxxlarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="338" controlTypeID="com.balsamiq.mockups::TextInput" x="526" y="472" w="201" h="-1" measuredW="79" measuredH="26" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="340" controlTypeID="com.balsamiq.mockups::TextArea" x="526" y="535" w="243" h="140" measuredW="200" measuredH="140" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Describe%20how%20to%20earn%20this%20badge.</text>
+      </controlProperties>
+    </control>
+    <control controlID="341" controlTypeID="com.balsamiq.mockups::Label" x="526" y="444" w="-1" h="-1" measuredW="95" measuredH="21" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Name%20Of%20Badge</text>
+      </controlProperties>
+    </control>
+    <control controlID="342" controlTypeID="com.balsamiq.mockups::Label" x="526" y="508" w="-1" h="-1" measuredW="67" measuredH="21" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Description</text>
+      </controlProperties>
+    </control>
+    <control controlID="343" controlTypeID="com.balsamiq.mockups::Label" x="899" y="621" w="-1" h="-1" measuredW="67" measuredH="21" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Description</text>
+      </controlProperties>
+    </control>
+    <control controlID="344" controlTypeID="com.balsamiq.mockups::Label" x="913" y="442" w="-1" h="-1" measuredW="35" measuredH="21" zOrder="38" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Name</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -1,0 +1,56 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1448" measuredH="876" mockupW="1024" mockupH="876">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="781" y="168" w="263" h="-1" measuredW="258" measuredH="40" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>32</size>
+        <text>Zerebral%20Rewards</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="781" y="209" w="263" h="-1" measuredW="112" measuredH="24" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>16</size>
+        <text>Invite%20Teachers</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="572" y="252" w="149" h="-1" measuredW="42" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>John</text>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::Button" x="1131" y="701" w="161" h="27" measuredW="113" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <href>Admin%20add%20Teachers%204%26bm%3BAdmin%20add%20Teachers%204.bmml%26bm%3BAdmin%20add%20Teachers%204.bmml%26bm%3BAdmin%20add%20Teachers%204.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22707%2C701%2C868%2C728%22%20href%3D%22Admin%2520add%2520Teachers%25204.bmml%22%20alt%3D%22Admin%20add%20Teachers%204%22%20id%3D%2219%22/%3E</map>
+        <text>Invite%20Teachers</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Canvas" x="887" y="252" w="405" h="439" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1"/>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::TextInput" x="729" y="252" w="149" h="-1" measuredW="48" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Smith</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::TextInput" x="572" y="288" w="306" h="-1" measuredW="149" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>jsmith@anytownms.org</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="757" y="321" w="-1" h="-1" measuredW="123" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <href>Admin%20Add%20Teachers%202%26bm%3BAdmin%20Add%20Teachers%202.bmml%26bm%3BAdmin%20Add%20Teachers%202.bmml%26bm%3BAdmin%20Add%20Teachers%202.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22333%2C321%2C456%2C348%22%20href%3D%22Admin%2520Add%2520Teachers%25202.bmml%22%20alt%3D%22Admin%20Add%20Teachers%202%22%20id%3D%2231%22/%3E</map>
+        <text>Add%20to%20Invite%20List</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Component" x="424" y="0" w="1024" h="876" measuredW="1024" measuredH="876" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/Symbols.bmml#Blank%20Background</src>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
