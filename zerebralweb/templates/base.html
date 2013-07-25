@@ -14,6 +14,7 @@
     <!-- Loading Flat UI -->
     <link href="{{ STATIC_URL }}css/demo.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/flat-ui.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/zerebral.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico">
 
@@ -24,13 +25,45 @@
   </head>
   <body>
   
-    <!-- NAV -->  
-    <div class="container">
-        <div class="row">
-            <div class="span12">
-                zerebral
+    <!-- NAV -->
+        <div class="navbar">
+            <div class="navbar-inner">
+              <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#nav-collapse-02">
+                </button>
+                <a href="#fakelink" class="brand fui-flat"></a>
+                <div class="nav-collapse collapse" id="nav-collapse-02">
+                  <form class="navbar-search form-search pull-right" action="">
+                    <div class="input-append">
+                      <input class="search-query span2" placeholder="Search" type="text">
+                      <button type="submit" class="btn btn-large">
+                        <i class="fui-search"></i>
+                      </button>
+                    </div>
+                  </form>
+
+                  <ul class="nav pull-right">
+                    <li class="active">
+                      <a href="#fakelink">
+                        <span class="fui-user"></span><span class="hidden-desktop">My Account</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#fakelink">
+                        <span class="fui-mail"></span><span class="hidden-desktop">Messages</span>
+                        <span class="navbar-new">1</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#fakelink">
+                        <span class="fui-gear"></span><span class="hidden-desktop">Settings</span>
+                      </a>
+                    </li>
+                  </ul> <!-- /nav -->
+                </div><!--/.nav-collapse -->
+              </div>
             </div>
-        </div>
+          </div>
     </div>
     <!-- END NAV -->
 
