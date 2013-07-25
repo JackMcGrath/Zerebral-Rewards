@@ -1,5 +1,230 @@
 {% extends "base.html" %}
 
 {% block content %}
-register
+
+<div class="row">
+	<div class="span12">
+		<h3>register</h3><br />
+
+		<div class="registrationTabs">
+			<ul id="myTab" class="nav nav-tabs">
+		    	<li class="active"><a href="#school" data-toggle="tab">School</a></li>
+		      	<li><a href="#teacher" data-toggle="tab">Teacher</a></li>
+		      	<li><a href="#student" data-toggle="tab">Student</a></li>
+		      	<li><a href="#parent" data-toggle="tab">Parent</a></li>
+		    </ul>
+
+			<div id="myTabContent" class="tab-content">
+  				<div class="tab-pane fade in active" id="school">
+    				<form action="?" method="POST">
+    				  <div class="control-group">
+					    <label class="control-label">School ID</label>
+					    <div class="controls">
+					      <input type="text" name="school_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">First Name</label>
+					    <div class="controls">
+					      <input type="text" name="first_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Last Name</label>
+					    <div class="controls">
+					      <input type="text" name="last_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Email</label>
+					    <div class="controls">
+					      <input type="text" name="email">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Password</label>
+					    <div class="controls">
+					      <input type="text" name="password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Confirm Password</label>
+					    <div class="controls">
+					      <input type="text" name="password_confirm">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <button type="submit" class="btn">Register</button>
+					    </div>
+					  </div>
+					  <input type="hidden" name="type" value="school">
+					  {% csrf_token %}
+					</form>
+  				</div>
+  				<div class="tab-pane fade" id="teacher">
+    				<form action="?" method="POST">
+    				  <div class="control-group">
+					    <label class="control-label">School ID</label>
+					    <div class="controls">
+					      <input type="text" name="school_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Teacher ID</label>
+					    <div class="controls">
+					      <input type="text" name="teacher_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">First Name</label>
+					    <div class="controls">
+					      <input type="text" name="first_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Last Name</label>
+					    <div class="controls">
+					      <input type="text" name="last_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Email</label>
+					    <div class="controls">
+					      <input type="text" name="email">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Password</label>
+					    <div class="controls">
+					      <input type="text" name="password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Confirm Password</label>
+					    <div class="controls">
+					      <input type="text" name="password_confirm">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <button type="submit" class="btn">Register</button>
+					    </div>
+					  </div>
+					  <input type="hidden" name="type" value="teacher">
+					  {% csrf_token %}
+					</form>
+  				</div>
+  				<div class="tab-pane fade" id="student">
+    				<form action="?" method="POST">
+    				  <div class="control-group">
+					    <label class="control-label">School ID</label>
+					    <div class="controls">
+					      <input type="text" name="school_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Student ID</label>
+					    <div class="controls">
+					      <input type="text" name="student_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">First Name</label>
+					    <div class="controls">
+					      <input type="text" name="first_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Last Name</label>
+					    <div class="controls">
+					      <input type="text" name="last_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Email</label>
+					    <div class="controls">
+					      <input type="text" name="email">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Password</label>
+					    <div class="controls">
+					      <input type="text" name="password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Confirm Password</label>
+					    <div class="controls">
+					      <input type="text" name="password_confirm">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <button type="submit" class="btn">Register</button>
+					    </div>
+					  </div>
+					  <input type="hidden" name="type" value="student">
+					  {% csrf_token %}
+					</form>
+  				</div>
+  				<div class="tab-pane fade" id="parent">
+    				<form action="?" method="POST">
+    				  <div class="control-group">
+					    <label class="control-label">School ID</label>
+					    <div class="controls">
+					      <input type="text" name="school_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Parent ID</label>
+					    <div class="controls">
+					      <input type="text" name="parent_id">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">First Name</label>
+					    <div class="controls">
+					      <input type="text" name="first_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Last Name</label>
+					    <div class="controls">
+					      <input type="text" name="last_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Email</label>
+					    <div class="controls">
+					      <input type="text" name="email">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Password</label>
+					    <div class="controls">
+					      <input type="text" name="password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Confirm Password</label>
+					    <div class="controls">
+					      <input type="text" name="password_confirm">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <div class="controls">
+					      <button type="submit" class="btn">Register</button>
+					    </div>
+					  </div>
+					  <input type="hidden" name="type" value="parent">
+					  {% csrf_token %}
+					</form>
+  				</div>
+			</div>
+		</div>
+		<h4>{{ error }}</h4>
+  	</div>
+</div>
+
 {% endblock %}

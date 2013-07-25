@@ -31,10 +31,10 @@ def login(request):
 
         if user is None:
             # incorrect username/password
-            return render(request, 'auth/login.html', {error: 'Incorrect username or password.'})
+            return render(request, 'auth/login.html', {'error': 'Incorrect username or password.'})
         elif not user.is_active:
             # user's account is disabled
-            return render(request, 'auth/login.html', {error: 'Your account has been disabled.'})
+            return render(request, 'auth/login.html', {'error': 'Your account has been disabled.'})
 
     # NOTE: superadmins will ALWAYS have EVERY permission (even if they don't exist!)
     if request.user.is_active and request.user.is_superuser:
@@ -49,12 +49,14 @@ def login(request):
         return redirect('/student')      
 
     # no permissions? not logged in? send them to login page
-    return render(request, 'auth/login.html', {error: ''})
+    return render(request, 'auth/login.html', {'error': ''})
 
 
 def register(request):
     if request.method == 'POST':
         # TODO
         pass
+    else:
+        form = StudentRegisterForm()
 
     return render(request, 'auth/register.html')

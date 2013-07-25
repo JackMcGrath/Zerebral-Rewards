@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Zerebral</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <!-- Loading Bootstrap -->
     <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -22,12 +24,21 @@
   </head>
   <body>
   
-    <h1 class="demo-headline">Zerebral</h1>
+    <!-- NAV -->  
     <div class="container">
-    
+        <div class="row">
+            <div class="span12">
+                zerebral
+            </div>
+        </div>
+    </div>
+    <!-- END NAV -->
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
     	{% block content %}{% endblock %}
-      
-    </div><!-- /.container -->
+    </div>
+    <!-- END MAIN CONTENT -->
 
 
     <!-- Load JS here for greater good =============================-->

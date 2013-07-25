@@ -1,5 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-login
+<div class="row">
+	<div class="span12">
+		<h3>login</h3><br />
+
+		<form action="?" method="POST">
+		  <div class="control-group">
+		    <label class="control-label" for="inputEmail">Username</label>
+		    <div class="controls">
+		      <input type="text" id="inputEmail" name="username" placeholder="Email">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputPassword">Password</label>
+		    <div class="controls">
+		      <input type="password" id="inputPassword" name="password" placeholder="Password">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <div class="controls">
+		      <button type="submit" class="btn">Sign in</button>
+		    </div>
+		  </div>
+		  {% csrf_token %}
+		</form>
+
+		<h4>{{ error }}</h4>
+	</div>
+</div>
 {% endblock %}
