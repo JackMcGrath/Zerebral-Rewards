@@ -1,0 +1,6 @@
+a.zerebral-logo {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-image: url('/static/images/zerebral/logo-small.png');
+}
