@@ -1,20 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import logout
 from django.contrib.auth.models import User
-from django import forms
+from django.contrib.auth import authenticate, login
 
-
-
-
-
-class StudentRegisterForm(forms.Form):
-    school_id = forms.IntegerField()
-    student_id = forms.IntegerField()
-    first_name = forms.CharField(max_length=100)
-    last_name = forms.CharField(max_length=100)
-    email = forms.EmailField(max_length=254)
-    password = forms.CharField(max_length=100, min_length=4)
-    confirm_password = forms.CharField(max_length=100, min_length=4)
 
 
 
@@ -35,16 +22,15 @@ def login(request):
         elif not user.is_active:
             # user's account is disabled
             return render(request, 'auth/login.html', {'error': 'Your account has been disabled.'})
+        else:
+            # login is good
+            login(username=request.POST['username'], password=request.POST['password'])
 
     # NOTE: superadmins will ALWAYS have EVERY permission (even if they don't exist!)
     if request.user.is_active and request.user.is_superuser:
         return redirect('/admin')
-    elif request.user.has_perm('auth.is_school'):
-        return redirect('/school')
     elif request.user.has_perm('auth.is_teacher'):
         return redirect('/teacher')
-    elif request.user.has_perm('auth.is_parent'):
-        return redirect('/parent')
     elif request.user.has_perm('auth.is_student'):
         return redirect('/student')      
 
@@ -54,13 +40,9 @@ def login(request):
 
 def register(request):
     if request.method == 'POST':
-        if request.POST['type'] == 'school':
-            pass
-        elif request.POST['type'] == 'teacher':
+        if request.POST['type'] == 'teacher':
             pass
         elif request.POST['type'] == 'student':
-            pass
-        elif request.POST['type'] == 'parent':
             pass
 
     return render(request, 'auth/register.html')
