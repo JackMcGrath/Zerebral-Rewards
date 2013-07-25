@@ -4,3 +4,19 @@ a.zerebral-logo {
     height: 80px;
     background-image: url('/static/images/zerebral/logo-small.png');
 }
+
+
+/* zerebral icon bar */
+.iconbar-zerebral {
+  background-color: #F99E1F;
+}
+.iconbar-zerebral > ul > li.active > a {
+  color: #D08729;
+}
+.iconbar-zerebral > ul > li > a:hover,
+.iconbar-zerebral > ul > li > a:focus {
+  color: #D08729;
+}
+.iconbar-zerebral .iconbar-unread {
+  background-color: #D08729;
+}
