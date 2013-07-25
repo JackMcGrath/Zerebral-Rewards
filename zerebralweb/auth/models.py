@@ -9,11 +9,9 @@ from schools.models import School
 class ZerebralUser(models.Model):
     # these are used to control access to views and determine user type
     class Meta:
-        permissions = (("is_school", "Has access to school dashboard"),
-                       ("is_teacher", "Has access to teacher dashboard"),
-                       ("is_parent", "Has access to parent dashboard"),
+        permissions = (("is_teacher", "Has access to teacher dashboard"),
                        ("is_student", "Has access to student dashboard"),)
-    
+
     # link up with Django's user model
     user = models.OneToOneField(User)
 
@@ -24,15 +22,12 @@ class ZerebralUser(models.Model):
     zerebral_id = models.CharField(max_length=50, unique=True)
 
     # link to the actual profile depending on the user type (mutiple are allowed)
-    school = models.ForeignKey(School, blank=True, null=True)
     teacher = models.ForeignKey(Teacher, blank=True, null=True)
-    parent = models.ForeignKey(Parent, blank=True, null=True)
     student = models.ForeignKey(Student, blank=True, null=True)
 
 
-
-# used to invite parents or teachers
-class TeacherParentInvite(models.Model):
+# used to invite students
+class StudentInvite(models.Model):
     # invitation code
     code = models.CharField(max_length=50)
 
@@ -43,9 +38,3 @@ class TeacherParentInvite(models.Model):
 
     # who created this invite?
     initiator = models.ForeignKey(User)
-
-# used to invite students (parent info attached)
-class StudentInvite(TeacherParentInvite):
-    parent_first_name = models.CharField(max_length=100)
-    parent_last_name = models.CharField(max_length=100)
-    parent_email = models.EmailField(max_length=254)
