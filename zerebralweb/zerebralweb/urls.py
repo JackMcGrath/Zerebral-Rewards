@@ -16,7 +16,6 @@ urlpatterns = patterns('',
 	# apps for each 
     url(r'^teacher/', include('teachers.urls')),
     url(r'^student/', include('students.urls')),
-    url(r'^parent/', include('parents.urls')),
     url(r'^school/', include('schools.urls')),
 
     # catch all (we'll forward them to login page)
