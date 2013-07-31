@@ -11,6 +11,6 @@ class Notification(models.Model):
 	)
 	type = models.CharField(max_length=50, choices=NOTIFICATION_TYPES)
 
-	body = models.CharField(max_length=100)
+	body = models.CharField(max_length=500)
 
 	read = models.BooleanField(default=False)

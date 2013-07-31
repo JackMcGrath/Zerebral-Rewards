@@ -17,7 +17,7 @@ class PointCategory(models.Model):
     description = models.CharField(max_length=500)
     # whether this category can be edited by the teacher or not
     editable = models.BooleanField(default=False)
-    weight = models.DecimalField(default=1.0, max_digits=15, decimal_places=2)
+    weight = models.DecimalField(default=1.0, max_digits=10, decimal_places=2)
 
 # terms hold classes, the point categories, and begin/end date
 class Term(models.Model):

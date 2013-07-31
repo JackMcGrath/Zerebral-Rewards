@@ -13,9 +13,6 @@ class Evaluation(models.Model):
     # there is one enrolled student per class
     student = models.ForeignKey(EnrolledStudent)
 
-    # a teacher can begin an evaulation and save it without submitting it
-    submitted = models.BooleanField(default=False)
-
     assessments = models.ManyToManyField(Assessment)
     date = models.DateField(default=datetime.date.today)
     grade_percent = models.IntegerField()
