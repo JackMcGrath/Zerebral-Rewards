@@ -3,4 +3,5 @@ from schools.models import School
 
 # teacher
 class Teacher(models.Model):
-    school = models.ForeignKey(School)
+    # do not require school in case it's not in the db
+    school = models.ForeignKey(School, blank=True, null=True)

@@ -1,5 +1,4 @@
 from django.contrib import admin
-from schools.models import School,PointCategory
+from schools.models import School
 
 admin.site.register(School)
-admin.site.register(PointCategory)
