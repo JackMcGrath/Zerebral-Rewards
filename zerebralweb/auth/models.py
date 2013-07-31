@@ -1,9 +1,7 @@
 from django.db import models
-from parents.models import Parent
 from students.models import Student
 from teachers.models import Teacher
 from django.contrib.auth.models import User
-from schools.models import School
 
 # ZerebralUser is how we link together Django's User model and School, Teacher, Parent, and/or Student profiles
 class ZerebralUser(models.Model):

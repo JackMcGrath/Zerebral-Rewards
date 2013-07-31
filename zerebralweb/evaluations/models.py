@@ -2,8 +2,7 @@ from django.db import models
 import datetime
 from students.models import Student
 from classes.models import Course
-from schools.models import PointCategory
-
+from classes.models import PointCategory
 
 # there is one assessment per point category of the term
 class Assessment(models.Model):

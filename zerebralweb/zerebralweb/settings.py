@@ -127,13 +127,12 @@ INSTALLED_APPS = (
     # custom apps
     'schools',
     'badges',
-    'students',
-    'parents',
     'teachers',
-    'auth',
-    'notifications',
     'goals',
     'classes',
+    'students',
+    'auth',
+    'notifications',
     'evaluations',
     
     # Uncomment the next line to enable the admin:
