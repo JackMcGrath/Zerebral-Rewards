@@ -16,23 +16,6 @@ class ZerebralUser(models.Model):
     # has this user accepted the TOS?
     tos_accepted = models.BooleanField(default=False)
 
-    # zerebral unique ID
-    zerebral_id = models.CharField(max_length=50, unique=True)
-
     # link to the actual profile depending on the user type (mutiple are allowed)
     teacher = models.ForeignKey(Teacher, blank=True, null=True)
     student = models.ForeignKey(Student, blank=True, null=True)
-
-
-# used to invite students
-class StudentInvite(models.Model):
-    # invitation code
-    code = models.CharField(max_length=50)
-
-    # info that will be pre-filled when clicking an invite link
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=254)
-
-    # who created this invite?
-    initiator = models.ForeignKey(User)
