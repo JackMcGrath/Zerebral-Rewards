@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 
 
 
 
-def login(request):
+def login_view(request):
     if request.user.is_authenticated():
         # grab the user object
         user = request.user
@@ -24,7 +23,7 @@ def login(request):
             return render(request, 'auth/login.html', {'error': 'Your account has been disabled.'})
         else:
             # login is good
-            login(username=request.POST['username'], password=request.POST['password'])
+            login(request, user)
 
     # NOTE: superadmins will ALWAYS have EVERY permission (even if they don't exist!)
     if request.user.is_active and request.user.is_superuser:
@@ -38,7 +37,7 @@ def login(request):
     return render(request, 'auth/login.html', {'error': ''})
 
 
-def register(request):
+def register_view(request):
     if request.method == 'POST':
         if request.POST['type'] == 'teacher':
             pass
