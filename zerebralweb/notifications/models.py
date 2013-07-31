@@ -1,16 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
+from auth.models import ZerebralUser
 
 # notifications for users
 class Notification(models.Model):
-	initiator = models.ForeignKey(User, related_name='notification_initiator')
-	recipient = models.ForeignKey(User, related_name='notification_recipient')
+	initiator = models.ForeignKey(ZerebralUser, related_name='notification_initiator', blank=True, null=True)
+	recipient = models.ForeignKey(ZerebralUser, related_name='notification_recipient')
 
 	NOTIFICATION_TYPES = (
 	    ('metgoal', 'Met Goal'),
 	)
 	type = models.CharField(max_length=50, choices=NOTIFICATION_TYPES)
 
-	body = models.CharField(max_length=100)
+	body = models.CharField(max_length=500)
 
 	read = models.BooleanField(default=False)

@@ -1,5 +1,4 @@
 from django.contrib import admin
-from goals.models import GoalCategory, Goal
+from goals.models import Goal
 
-admin.site.register(GoalCategory)
 admin.site.register(Goal)

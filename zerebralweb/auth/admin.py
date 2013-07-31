@@ -1,5 +1,4 @@
 from django.contrib import admin
-from auth.models import ZerebralUser, StudentInvite
+from auth.models import ZerebralUser
 
 admin.site.register(ZerebralUser)
-admin.site.register(StudentInvite)

@@ -9,8 +9,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # auth endpoints
-    url(r'^login/$', 'auth.views.login'),
-	url(r'^register/$', 'auth.views.register'),
+    url(r'^login/$', 'auth.views.login_view'),
+	url(r'^register/$', 'auth.views.register_view'),
 	(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
 
 	# apps for each 
@@ -19,5 +19,5 @@ urlpatterns = patterns('',
     url(r'^school/', include('schools.urls')),
 
     # catch all (we'll forward them to login page)
-    url(r'^$', 'auth.views.login'),
+    url(r'^$', 'auth.views.login_view'),
 )
