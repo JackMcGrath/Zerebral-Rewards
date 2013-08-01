@@ -9,15 +9,12 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     # auth endpoints
-    url(r'^login/$', 'auth.views.login_view'),
-	url(r'^register/$', 'auth.views.register_view'),
-	(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+    url(r'^accounts/', include('auth.urls')),
 
-	# apps for each 
+    # apps for each
     url(r'^teacher/', include('teachers.urls')),
     url(r'^student/', include('students.urls')),
-    url(r'^school/', include('schools.urls')),
 
-    # catch all (we'll forward them to login page)
-    url(r'^$', 'auth.views.login_view'),
+    # catch all (acts as a router to proper dashboard)
+    url(r'^$', 'auth.views.home_view'),
 )

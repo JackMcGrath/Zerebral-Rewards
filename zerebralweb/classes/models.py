@@ -11,3 +11,6 @@ class Course(models.Model):
     goals = models.ManyToManyField(Goal)
     teacher = models.ForeignKey(Teacher)
     term = models.ForeignKey(Term)
+
+    def __unicode__(self):
+        return unicode(self.name)

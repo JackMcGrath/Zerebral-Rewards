@@ -18,6 +18,9 @@ class ZerebralUser(models.Model):
     # has this user accepted the TOS?
     tos_accepted = models.BooleanField(default=False)
 
-    # link to the actual profile depending on the user type (mutiple are allowed)
+    # link to the actual profile depending on the user type (multiple are allowed)
     teacher = models.ForeignKey(Teacher, blank=True, null=True)
     student = models.ForeignKey(Student, blank=True, null=True)
+
+    def __unicode__(self):
+        return unicode(self.user.first_name + ' ' + self.user.last_name + ' (' + self.user.username + ')')

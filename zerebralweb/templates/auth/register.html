@@ -8,12 +8,12 @@
 
 		<div class="registrationTabs">
 			<ul id="myTab" class="nav nav-tabs">
-		    	<li class="active"><a href="#teacher" data-toggle="tab">Teacher</a></li>
-		      	<li><a href="#student" data-toggle="tab">Student</a></li>
+		    	<li class="active"><a href="#student" data-toggle="tab">Student</a></li>
+		      	<li><a href="#teacher" data-toggle="tab">Teacher</a></li>
 		    </ul>
 
 			<div id="myTabContent" class="tab-content">
-  				<div class="tab-pane fade in active" id="teacher">
+  				<div class="tab-pane fade in active" id="student">
     				<form action="?" method="POST">
 					  <div class="control-group">
 					    <label class="control-label">First Name</label>
@@ -34,54 +34,7 @@
 					    </div>
 					  </div>
                       <div class="control-group">
-					    <label class="control-label">School (DROPDOWN)</label>
-					    <div class="controls">
-					      <input type="text" name="school">
-					    </div>
-					  </div>
-					  <div class="control-group">
-					    <label class="control-label">Password</label>
-					    <div class="controls">
-					      <input type="text" name="password">
-					    </div>
-					  </div>
-					  <div class="control-group">
-					    <label class="control-label">Confirm Password</label>
-					    <div class="controls">
-					      <input type="text" name="password_confirm">
-					    </div>
-					  </div><br />
-					  <div class="control-group">
-					    <div class="controls">
-					      <button type="submit" class="btn">Register</button>
-					    </div>
-					  </div>
-					  <input type="hidden" name="type" value="teacher">
-					  {% csrf_token %}
-					</form>
-  				</div>
-  				<div class="tab-pane fade" id="student">
-    				<form action="?" method="POST">
-					  <div class="control-group">
-					    <label class="control-label">First Name</label>
-					    <div class="controls">
-					      <input type="text" name="first_name">
-					    </div>
-					  </div>
-					  <div class="control-group">
-					    <label class="control-label">Last Name</label>
-					    <div class="controls">
-					      <input type="text" name="last_name">
-					    </div>
-					  </div>
-					  <div class="control-group">
-					    <label class="control-label">Email</label>
-					    <div class="controls">
-					      <input type="text" name="email">
-					    </div>
-					  </div>
-                      <div class="control-group">
-					    <label class="control-label">Parent Email</label>
+					    <label class="control-label">Parent's Email</label>
 					    <div class="controls">
 					      <input type="text" name="parent_email">
 					    </div>
@@ -104,6 +57,57 @@
 					    </div>
 					  </div>
 					  <input type="hidden" name="type" value="student">
+					  {% csrf_token %}
+					</form>
+  				</div>
+                <div class="tab-pane fade" id="teacher">
+    				<form action="?" method="POST">
+					  <div class="control-group">
+					    <label class="control-label">First Name</label>
+					    <div class="controls">
+					      <input type="text" name="first_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Last Name</label>
+					    <div class="controls">
+					      <input type="text" name="last_name">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Email</label>
+					    <div class="controls">
+					      <input type="text" name="email">
+					    </div>
+					  </div>
+                      <div class="control-group">
+					    <label class="control-label">School (DROPDOWN)</label>
+					    <div class="controls">
+                          <select name="school" class="select-block">
+                            {% for school in schools %}
+            				  <option value="{{ school.id }}">{{ school.school_name }}</option>
+                            {% endfor %}
+          			      </select>
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Password</label>
+					    <div class="controls">
+					      <input type="text" name="password">
+					    </div>
+					  </div>
+					  <div class="control-group">
+					    <label class="control-label">Confirm Password</label>
+					    <div class="controls">
+					      <input type="text" name="password_confirm">
+					    </div>
+					  </div><br />
+					  <div class="control-group">
+					    <div class="controls">
+					      <button type="submit" class="btn">Register</button>
+					    </div>
+					  </div>
+					  <input type="hidden" name="type" value="teacher">
 					  {% csrf_token %}
 					</form>
   				</div>

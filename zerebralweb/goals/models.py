@@ -13,3 +13,6 @@ class Goal(models.Model):
 
     # the badge associated with earning this goal
     badge = models.ForeignKey(Badge)
+
+    def __unicode__(self):
+        return unicode(self.name)

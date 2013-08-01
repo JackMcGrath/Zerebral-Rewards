@@ -13,6 +13,9 @@ class EnrolledStudent(models.Model):
     # has a student been linked with this enrollment?
     linked = models.BooleanField(default=False)
 
+    def __unicode__(self):
+        return unicode(self.first_name + ' ' + self.last_name + ' enrolled in ' + self.course.name)
+
 
 # student
 class Student(models.Model):
@@ -37,3 +40,6 @@ class Student(models.Model):
     goals_earned = models.ManyToManyField(Goal)
 
     badges_earned = models.ManyToManyField(Badge)
+
+    def __unicode__(self):
+        return unicode('Zerebral Student Profile')

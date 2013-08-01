@@ -18,3 +18,6 @@ class Evaluation(models.Model):
     grade_percent = models.IntegerField()
     engagement_percent = models.IntegerField()
     note = models.CharField(max_length=500)
+
+    def __unicode__(self):
+        return unicode(self.student + ' (' + self.date + ')')
