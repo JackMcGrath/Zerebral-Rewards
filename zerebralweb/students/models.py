@@ -2,7 +2,7 @@ from django.db import models
 from badges.models import Badge
 from goals.models import Goal
 from classes.models import Course
-from auth.helpers import generate_shortcode
+from students.helpers import generate_shortcode
 
 
 # this is how we track students without them joining yet and link them via join codes for the course

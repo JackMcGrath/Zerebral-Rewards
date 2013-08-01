@@ -33,5 +33,5 @@ def get_teacher_for_user(user):
     return z_user.teacher
 
 
-def generate_shortcode(length):
+def generate_token(length):
     return ''.join(random.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(length))
