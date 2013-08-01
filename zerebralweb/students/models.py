@@ -15,9 +15,16 @@ class EnrolledStudent(models.Model):
     linked = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
-        # automatically generate a short code for each enrolled student before saving
-        self.join_code = generate_shortcode(10)
-        super(EnrolledStudent, self).save(*args, **kwargs)  # Call the "real" save() method.
+        save_success = False
+        while not save_success:
+            try:
+                # automatically generate a short code for each enrolled student before saving
+                self.join_code = generate_shortcode(10)
+                super(EnrolledStudent, self).save(*args, **kwargs)  # Call the "real" save() method.
+                save_success = True
+            except:
+                # token collision, regen
+                pass
 
     def __unicode__(self):
         return unicode(self.first_name + ' ' + self.last_name + ' enrolled in ' + self.course.name)
