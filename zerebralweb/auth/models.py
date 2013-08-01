@@ -8,7 +8,9 @@ class ZerebralUser(models.Model):
     # these are used to control access to views and determine user type
     class Meta:
         permissions = (("is_teacher", "Has access to teacher dashboard"),
-                       ("is_student", "Has access to student dashboard"),)
+                       ("is_student", "Has access to student dashboard"),
+                       ("needs_consent", "Student awaiting consent"),
+                       ("needs_tos", "User that has yet to agree to TOS"),)
 
     # link up with Django's user model
     user = models.OneToOneField(User)
