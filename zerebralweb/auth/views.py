@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from schools.models import School
 from django.contrib.auth.decorators import login_required
-
-
+from auth.models import ZerebralUser
+from django.contrib.auth.models import User, Permission
+from teachers.models import Teacher
+from students.models import Student
+from auth.helpers import *
 
 
 def home_view(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         # NOTE: superadmins will ALWAYS have EVERY permission (even if they don't exist!)
         if request.user.is_active and request.user.is_superuser:
             return redirect('/admin')
@@ -15,12 +18,20 @@ def home_view(request):
             return redirect('/teacher')
         elif request.user.has_perm('auth.is_student'):
             return redirect('/student')
+        elif request.user.has_perm('auth.needs_tos'):
+            return redirect('/accounts/tos')
+        elif request.user.has_perm('auth.needs_consent'):
+            return redirect('/student/consent')
 
     return redirect('/accounts/login')
 
 
 
 def login_view(request):
+    # make sure users that are logged in can't reach this
+    if request.user.is_authenticated and request.user.is_active:
+        return redirect('/')
+
     if request.method == 'POST':
         try:
             user = authenticate(username=request.POST['username'], password=request.POST['password'])
@@ -43,21 +54,103 @@ def login_view(request):
 
 
 def register_view(request):
+    # make sure users that are logged in can't reach this
+    if request.user.is_authenticated and request.user.is_active:
+        return redirect('/')
+
     if request.method == 'POST':
         if request.POST['type'] == 'teacher':
+            new_user = User.objects.create_user(
+                username=request.POST['username'],
+                first_name=request.POST['first_name'],
+                last_name=request.POST['last_name'],
+                password=request.POST['password'],
+                email=request.POST['email']
+            )
+
+            needs_tos = Permission.objects.get(codename='needs_tos')
+            new_user.user_permissions.add(needs_tos)
+            new_user.save()
+
+            new_teacher = Teacher(school_id=int(request.POST['school']))
+            new_teacher.save()
+
+            z_user = ZerebralUser(user=new_user, teacher=new_teacher)
+            z_user.save()
+
+            new_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request, new_user)
+
             return redirect('/accounts/tos')
         elif request.POST['type'] == 'student':
+            new_user = User.objects.create_user(
+                username=request.POST['username'],
+                first_name=request.POST['first_name'],
+                last_name=request.POST['last_name'],
+                password=request.POST['password'],
+                email=request.POST['email']
+            )
+
+            needs_tos = Permission.objects.get(codename='needs_tos')
+            new_user.user_permissions.add(needs_tos)
+            new_user.save()
+
+            new_student = Student(parent_email=request.POST['parent_email'])
+            new_student.save()
+
+            # TODO: send email to parent for consent
+
+            z_user = ZerebralUser(user=new_user, student=new_student)
+            z_user.save()
+
+            new_user = authenticate(username=request.POST['username'], password=request.POST['password'])
+            login(request, new_user)
+
             return redirect('/accounts/tos')
 
     schools = School.objects.all()
 
     return render(request, 'auth/register.html', {'schools': schools})
 
+
 @login_required
 def tos_view(request):
+    # check if they have already accepted the TOS
+    z_user = get_zerebral_user_for_django_user(request.user)
+    if z_user.tos_accepted:
+        return redirect('/')
+
     if request.method == 'POST':
         if request.POST['tos_accepted'] == 'yes':
-            # TODO: update the user showing that they have accepted the TOS
+            if is_teacher(request.user):
+                # update permissions
+                needs_tos = Permission.objects.get(codename='needs_tos')
+                teacher_perm = Permission.objects.get(codename='is_teacher')
+                request.user.user_permissions.remove(needs_tos)
+                request.user.user_permissions.add(teacher_perm)
+                request.user.save()
+
+                # update ZerebralUser
+                z_user.tos_accepted = True
+                z_user.save()
+            elif is_student(request.user):
+                # update permissions
+                needs_tos = Permission.objects.get(codename='needs_tos')
+                request.user.user_permissions.remove(needs_tos)
+
+                # change status to needs_consent if it's a student and they haven't yet received it
+                if get_student_for_user(request.user).consent_from_parent:
+                    student_perm = Permission.objects.get(codename='is_teacher')
+                    request.user.user_permissions.add(student_perm)
+                else:
+                    consent_perm = Permission.objects.get(codename='needs_consent')
+                    request.user.user_permissions.add(consent_perm)
+                request.user.save()
+
+                # update ZerebralUser
+                z_user.tos_accepted = True
+                z_user.save()
+
             return redirect('/')
 
     return render(request, 'auth/tos.html')

@@ -3,6 +3,7 @@ from django.views.generic import RedirectView
 
 urlpatterns = patterns('',
 	url(r'^dashboard', 'students.views.dashboard'),
+    url(r'^consent', 'students.views.consent'),
 
 	# first view should always be dashboard
 	url(r'^$', RedirectView.as_view(url='/student/dashboard')),

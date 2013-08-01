@@ -34,12 +34,10 @@ class Student(models.Model):
 
     # this should be updated every time an evaluation is submitted (essentially caching the total point calculation)
     pts_earned = models.IntegerField(default=0)
-
     pts_spent = models.IntegerField(default=0)
 
-    goals_earned = models.ManyToManyField(Goal)
-
-    badges_earned = models.ManyToManyField(Badge)
+    goals_earned = models.ManyToManyField(Goal, blank=True, null=True)
+    badges_earned = models.ManyToManyField(Badge, blank=True, null=True)
 
     def __unicode__(self):
         return unicode('Zerebral Student Profile')
