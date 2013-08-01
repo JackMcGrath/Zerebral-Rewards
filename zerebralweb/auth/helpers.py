@@ -1,5 +1,5 @@
 from auth.models import ZerebralUser
-
+import random
 
 
 def get_zerebral_user_for_django_user(user):
@@ -31,3 +31,7 @@ def get_student_for_user(user):
 def get_teacher_for_user(user):
     z_user = get_zerebral_user_for_django_user(user)
     return z_user.teacher
+
+
+def generate_shortcode(length):
+    return ''.join(random.choice('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ') for i in range(length))

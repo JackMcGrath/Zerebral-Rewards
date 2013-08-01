@@ -95,7 +95,7 @@ def register_view(request):
             new_user.user_permissions.add(needs_tos)
             new_user.save()
 
-            new_student = Student(parent_email=request.POST['parent_email'])
+            new_student = Student(parent_email=request.POST['parent_email'], parent_token=generate_shortcode(50))
             new_student.save()
 
             # TODO: send email to parent for consent
