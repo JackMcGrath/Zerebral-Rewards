@@ -10,6 +10,7 @@ class EnrolledStudent(models.Model):
     course = models.ForeignKey(Course)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254, blank=True, null=True)
     join_code = models.CharField(max_length=50, unique=True)
     # has a student been linked with this enrollment?
     linked = models.BooleanField(default=False)

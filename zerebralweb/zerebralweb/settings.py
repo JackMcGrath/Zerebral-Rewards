@@ -127,6 +127,7 @@ INSTALLED_APPS = (
     # custom apps
     'schools',
     'badges',
+    'actionplans',
     'teachers',
     'goals',
     'classes',
