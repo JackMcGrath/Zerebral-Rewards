@@ -19,7 +19,7 @@ def badges(request):
     return render(request, 'students/badges/overview.html')
 
 def actionplans(request):
-    return render(request, 'students/actionplans/actionplans.html')
+    return render(request, 'students/actionplans/overview.html')
 
 def new_actionplan(request):
     return render(request, 'students/actionplans/new_actionplan.html')
