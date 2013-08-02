@@ -127,11 +127,20 @@ a.text-primary:focus {
     display: inline-block;
     width: 100px;
     height: 100px;
-    background-color: green;
     color: white;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
+    /* Oval 1: */
+
+    background-image: -o-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: -moz-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: -webkit-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: -ms-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: linear-gradient(-180deg, #79CF19 0%, #246B16 100%);
+
+
+
 }
 
 .zerebral-engagement-badge > h4 {
