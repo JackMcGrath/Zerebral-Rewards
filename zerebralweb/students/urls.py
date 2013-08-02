@@ -8,11 +8,11 @@ urlpatterns = patterns('',
     # displayed when a student has not yet received parental consent
     url(r'^consent', 'students.views.consent'),
 
-    # show all goals currently available to student
-    url(r'^goals', 'students.views.all_goals'),
-
     # goal details page (can redeem a goal from here)
     url(r'^goals/(?P<goal_id>\w+)', 'students.views.view_goal'),
+
+    # show all goals currently available to student
+    url(r'^goals', 'students.views.all_goals'),
 
     # point overview and history
     url(r'^points', 'students.views.points'),
@@ -20,14 +20,14 @@ urlpatterns = patterns('',
     # all earned badges
     url(r'^badges', 'students.views.badges'),
 
-    # all active action plans
-    url(r'^actionplans', 'students.views.actionplans'),
+    # edit/revise an existing action plan
+    url(r'^actionplans/(?P<actionplan_id>\w+)/edit', 'students.views.edit_actionplan'),
 
     # create a new action plan
     url(r'^actionplans/new', 'students.views.new_actionplan'),
 
-    # edit/revise an existing action plan
-    url(r'^actionplans/(?P<actionplan_id>\w+)/edit', 'students.views.edit_actionplan'),
+    # all active action plans
+    url(r'^actionplans', 'students.views.actionplans'),
 
     # join courses using course codes
     url(r'^joincourse', 'students.views.join_course'),

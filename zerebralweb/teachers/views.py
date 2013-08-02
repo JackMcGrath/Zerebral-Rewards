@@ -8,19 +8,19 @@ def dashboard(request):
 def add_course(request):
     return render(request, 'teachers/courses/add_course.html')
 
-def view_course(request):
+def view_course(request, course_id):
     return render(request, 'teachers/courses/view_course.html')
 
-def edit_course(request):
+def edit_course(request, course_id):
     return render(request, 'teachers/courses/edit_course.html')
 
-def course_roster(request):
+def course_roster(request, course_id):
     return render(request, 'teachers/courses/course_roster.html')
 
-def add_students(request):
+def add_students(request, course_id):
     return render(request, 'teachers/courses/add_students.html')
 
-def view_evaluation(request):
+def view_evaluation(request, course_id, eval_id):
     return render(request, 'teachers/courses/evaluations.html')
 
 def all_goals(request):
@@ -29,7 +29,7 @@ def all_goals(request):
 def add_goal(request):
     return render(request, 'teachers/goals/add_goal.html')
 
-def edit_goal(request):
+def edit_goal(request, goal_id):
     return render(request, 'teachers/goals/edit_goal.html')
 
 def approve_goals(request):
