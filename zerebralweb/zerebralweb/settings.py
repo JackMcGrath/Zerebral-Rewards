@@ -127,11 +127,11 @@ INSTALLED_APPS = (
     # custom apps
     'schools',
     'badges',
-    'actionplans',
     'teachers',
     'goals',
     'classes',
     'students',
+    'actionplans',
     'auth',
     'notifications',
     'evaluations',

@@ -40,3 +40,6 @@ def action_plans(request):
 
 def settings(request):
     return render(request, 'teachers/settings/edit_profile.html')
+
+def notifications(request):
+    return render(request, 'notifications/teachers.html')
