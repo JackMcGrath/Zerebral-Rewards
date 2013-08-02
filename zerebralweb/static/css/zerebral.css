@@ -6,6 +6,81 @@ a.zerebral-logo {
 }
 
 
+/* zerebral flat-ui color overrides */
+.text-primary {
+  color: #F99E1F;
+}
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #D08729;
+}
+
+
+.btn.btn-success {
+  background-color: #F99E1F;
+}
+.btn.btn-success:hover,
+.btn.btn-success:focus,
+.btn-group:focus .btn.btn-success.dropdown-toggle {
+  background-color: #F99E1F;
+}
+.btn.btn-success:active,
+.btn-group.open .btn.btn-success.dropdown-toggle,
+.btn.btn-success.active {
+  background-color: #D08729;
+}
+
+.navbar .brand:focus {
+  color: #D08729;
+}
+
+.navbar .nav > li.active > a,
+.navbar .nav > li.active > a:hover,
+.navbar .nav > li.active > a:focus {
+  background: none;
+  color: #F99E1F;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:focus {
+  color: #F99E1F;
+}
+
+.navbar .nav ul li.active > a:focus {
+  background-color: #F99E1F;
+  color: #ffffff;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.navbar .nav ul a:hover {
+  background-color: #D08729;
+}
+
+.navbar .btn-navbar:hover,
+.navbar .btn-navbar:focus {
+  background: none;
+  color: #D08729;
+}
+
+.navbar-inverse .nav > li.active > a:focus {
+  background-color: #F99E1F;
+  border-bottom-color: #D08729;
+  border-left: none;
+  color: #ffffff;
+  padding-left: 20px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+
+
+
+
 /* zerebral icon bar */
 .iconbar-zerebral {
   background-color: #F99E1F;
@@ -67,7 +142,6 @@ a.zerebral-logo {
 
 
 .student-overview-assessments {
-
     margin-top:15px;
     background-color: #eef0f0;
 }

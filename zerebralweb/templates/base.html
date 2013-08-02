@@ -22,6 +22,10 @@
     <!--[if lt IE 9]>
       <script src="{{ STATIC_URL }}js/html5shiv.js"></script>
     <![endif]-->
+
+    <!-- Head-Extra for inheriting templates -->
+    {% block head-extra %} {% endblock %}
+
   </head>
   <body>
   
@@ -80,11 +84,9 @@
           <div class="span2 brand">
             <a href="#fakelink" class="fui-flat"></a>
           </div>
-
           <div class="span8">
             <ul class="bottom-links">
               <li><a href="#fakelink">About Us</a></li>
-              <li><a href="#fakelink">Store</a></li>
               <li class="active"><a href="#fakelink">Jobs</a></li>
               <li><a href="#fakelink">Privacy</a></li>
               <li><a href="#fakelink">Terms</a></li>
@@ -120,5 +122,8 @@
     <script src="{{ STATIC_URL }}js/jquery.placeholder.js"></script>
     <script src="{{ STATIC_URL }}js/jquery.stacktable.js"></script>
     <script src="{{ STATIC_URL }}js/application.js"></script>
+    <!-- script-extra for inheriting templates -->
+    {% block script-extra %} {% endblock %}
+
   </body>
 </html>
