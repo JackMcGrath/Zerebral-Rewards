@@ -7,7 +7,14 @@ class Notification(models.Model):
     recipient = models.ForeignKey(ZerebralUser, related_name='notification_recipient')
 
     NOTIFICATION_TYPES = (
-        ('metgoal', 'Met Goal'),
+        ('newgoal', 'New Goal Available'),
+        ('earnedgoal', 'Earned Goal'),
+        ('deniedgoal', 'Denied Goal'),
+        ('earnedbadge', 'Earned Badge'),
+        ('apneedrevise', 'Action Plan Needs Revising'),
+        ('apapproved', 'Action Plan Approved'),
+        ('earnedpoints', 'Earned Points'),
+        ('message', 'Message'),
     )
     type = models.CharField(max_length=50, choices=NOTIFICATION_TYPES)
 
