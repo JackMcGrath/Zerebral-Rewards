@@ -33,6 +33,9 @@ urlpatterns = patterns('',
     # edit teacher profile/site settings
     url(r'^settings', 'teachers.views.settings'),
 
+    # teacher notifications
+    url(r'^notifications', 'teachers.views.notifications'),
+
 
     # first view should always be dashboard
     url(r'^$', RedirectView.as_view(url='/teacher/dashboard')),
