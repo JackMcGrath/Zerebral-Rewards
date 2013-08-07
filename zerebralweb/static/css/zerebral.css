@@ -79,6 +79,9 @@ a.text-primary:focus {
   border-color: #F99E1F;
 }
 
+.nav-sub-link {
+  padding-left:30px !important;
+}
 
 /* zerebral icon bar */
 .iconbar-zerebral {
@@ -103,6 +106,19 @@ a.text-primary:focus {
 }
 .bg-green {
     background-color: green;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-orange {
+    background-color: #F99E1F;
+}
+
+.round-icon {
+    float: left;
+    border-radius: 8px;
 }
 
 .zerebral-icon-small {
