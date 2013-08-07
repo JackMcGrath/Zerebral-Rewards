@@ -12,7 +12,7 @@ class Goal(models.Model):
     active = models.BooleanField(default=False)
 
     # the badge associated with earning this goal
-    badge = models.ForeignKey(Badge)
+    badge = models.ForeignKey(Badge, blank=True, null=True)
 
     def __unicode__(self):
         return unicode(self.name)
