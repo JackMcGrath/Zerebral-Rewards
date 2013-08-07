@@ -129,6 +129,9 @@ a.text-primary:focus {
 .student-overview {
     margin-left: 50px;
 }
+.span8 > .row {
+    margin-left: 0px;
+}
 
 .rounded-bottom-5px {
     -moz-border-radius: 0px;
@@ -149,7 +152,6 @@ a.text-primary:focus {
 
 .student-overview-body {
     padding-bottom: 20px;
-
 }
 
 .badge-color-green {
