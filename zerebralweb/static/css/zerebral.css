@@ -75,6 +75,10 @@ a.text-primary:focus {
   box-shadow: none;
 }
 
+.navbar .navbar-search .search-query:focus {
+  border-color: #F99E1F;
+}
+
 
 /* zerebral icon bar */
 .iconbar-zerebral {
