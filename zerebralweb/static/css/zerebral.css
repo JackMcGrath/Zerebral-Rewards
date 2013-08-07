@@ -193,7 +193,6 @@ a.text-primary:focus {
 .student-overview-assessments {
     margin-top:15px;
     background-color: #eef0f0;
-
 }
 
 .bg-blue {
@@ -202,4 +201,10 @@ a.text-primary:focus {
 
 .bg-lightgrey {
     background-color: #f9f9f9;
+}
+
+/* teacher specific rules */
+
+#roster-btns {
+    margin-left: 18px;
 }
