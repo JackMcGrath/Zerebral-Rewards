@@ -1,0 +1,46 @@
+[
+  {
+    "model": "schools.pointcategory",
+    "pk": 1,
+    "fields": {
+      "name": "Attendance",
+      "description": "Attendance"
+    }
+  },
+  {
+    "model": "schools.pointcategory",
+    "pk": 2,
+    "fields": {
+      "name": "Effort",
+      "description": "Effort"
+    }
+  },
+  {
+    "model": "schools.pointcategory",
+    "pk": 3,
+    "fields": {
+      "name": "Citizenship",
+      "description": "Citizenship"
+    }
+  },
+  {
+    "model": "schools.pointcategory",
+    "pk": 4,
+    "fields": {
+      "name": "Participation",
+      "description": "Participation"
+    }
+  },
+
+  {
+    "model": "schools.school",
+    "pk": 1,
+    "fields": {
+      "school_name": "Kettering University",
+      "address": "1700 University Avenue",
+      "city": "Flint",
+      "state": "MI",
+      "zip_code": "48504"
+    }
+  }
+]

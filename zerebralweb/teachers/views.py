@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect
 def dashboard(request):
     return render(request, 'teachers/dashboard.html')
 
-
-
 def add_course(request):
     return render(request, 'teachers/courses/add_course.html')
 

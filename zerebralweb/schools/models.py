@@ -34,4 +34,4 @@ class Term(models.Model):
     point_categories = models.ManyToManyField(PointCategory)
 
     def __unicode__(self):
-        return unicode('Started on ' + self.begin_date)
+        return unicode('Started on ' + str(self.begin_date))
