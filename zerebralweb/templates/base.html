@@ -28,7 +28,6 @@
 
   </head>
   <body>
-  
     <!-- NAV -->
         <div class="navbar">
             <div class="navbar-inner">
@@ -71,8 +70,11 @@
 
     <!-- END NAV -->
 
+
+
     <!-- MAIN CONTENT -->
     <div class="container">
+        {% block sidebar %}{% endblock %}
     	{% block content %}{% endblock %}
     </div>
     <!-- END MAIN CONTENT -->
