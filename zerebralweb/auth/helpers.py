@@ -3,7 +3,6 @@ import random
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
-from django.contrib.auth.models import User
 
 
 def get_zerebral_user_for_django_user(user):
