@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     # apps for each
     url(r'^teacher/', include('teachers.urls')),
     url(r'^student/', include('students.urls')),
+    url(r'^parent/', include('parents.urls')),
 
     # catch all (acts as a router to proper dashboard)
     url(r'^$', 'auth.views.home_view'),
