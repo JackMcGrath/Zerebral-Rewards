@@ -205,7 +205,7 @@ a.text-primary:focus {
 
 /* teacher specific rules */
 
-#roster-btns {
+.btn-row {
     margin-left: 18px;
 }
 
