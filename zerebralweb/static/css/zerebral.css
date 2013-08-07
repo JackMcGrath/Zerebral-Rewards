@@ -208,3 +208,7 @@ a.text-primary:focus {
 #roster-btns {
     margin-left: 18px;
 }
+
+.eval-dropdown {
+    left: 36%;
+}
