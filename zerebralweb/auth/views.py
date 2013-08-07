@@ -72,6 +72,7 @@ def register_view(request):
             needs_tos = Permission.objects.get(codename='needs_tos')
             new_user.user_permissions.add(needs_tos)
             new_user.save()
+            teacher_name = new_user.first_name + ' ' + new_user.last_name
 
             # grab the selected school model
             home_school = School.objects.get(pk=request.POST['school'])
@@ -103,6 +104,9 @@ def register_view(request):
             new_user = authenticate(username=request.POST['username'], password=request.POST['password'])
             login(request, new_user)
 
+            # send the welcome email
+            send_teacher_welcome_email(teacher_name, new_user.email)
+
             return redirect('/accounts/tos')
         elif request.POST['type'] == 'student':
             new_user = User.objects.create_user(
@@ -116,17 +120,26 @@ def register_view(request):
             needs_tos = Permission.objects.get(codename='needs_tos')
             new_user.user_permissions.add(needs_tos)
             new_user.save()
+            student_name = new_user.first_name + ' ' + new_user.last_name
 
             new_student = Student(parent_email=request.POST['parent_email'], parent_token=generate_token(50))
             new_student.save()
 
-            # TODO: send email to parent for consent
+            # send email to parent for consent
+            send_consent_email(
+                request.build_absolute_uri('/parent/consent/'+new_student.parent_token),
+                student_name,
+                new_student.parent_email
+            )
 
             z_user = ZerebralUser(user=new_user, student=new_student)
             z_user.save()
 
             new_user = authenticate(username=request.POST['username'], password=request.POST['password'])
             login(request, new_user)
+
+            # send the welcome email
+            send_student_welcome_email(student_name, new_user.email)
 
             return redirect('/accounts/tos')
 

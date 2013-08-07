@@ -1,0 +1,3 @@
+Consent for {{ student_name }} to join Zerebral.
+
+To consent, click here: {{ consent_url }}
