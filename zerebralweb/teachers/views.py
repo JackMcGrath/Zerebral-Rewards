@@ -1,9 +1,26 @@
 from django.shortcuts import render, redirect
+from auth.helpers import get_teacher_for_user
+from schools.models import Term
+from classes.models import Course
 
 def dashboard(request):
     return render(request, 'teachers/dashboard.html')
 
 def add_course(request):
+    if request.method == 'POST':
+        class_name = request.POST['course_name']
+        class_id = request.POST['course_id']
+        class_teacher = get_teacher_for_user(request.user)
+        class_term = Term.objects.get(school=class_teacher.school)
+
+        new_course = Course(
+            name=class_name,
+            course_id=class_id,
+            teacher=class_teacher,
+            term=class_term
+        )
+        new_course.save()
+
     return render(request, 'teachers/courses/add_course.html')
 
 def view_course(request, course_id):
