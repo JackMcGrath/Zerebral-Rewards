@@ -8,15 +8,15 @@ urlpatterns = patterns('',
     # add a new course
     url(r'^courses/add', 'teachers.views.add_course'),
     # view (and edit) an evaluation for a course
-    url(r'^courses/(?P<course_id>\w+)/evaluations/(?P<eval_id>\w+)', 'teachers.views.view_evaluation'),
+    url(r'^courses/(?P<course_stub>\w+)/evaluations/(?P<eval_id>\w+)', 'teachers.views.view_evaluation'),
     # edit a course
-    url(r'^courses/(?P<course_id>\w+)/edit', 'teachers.views.edit_course'),
+    url(r'^courses/(?P<course_stub>\w+)/edit', 'teachers.views.edit_course'),
     # add students to a course
-    url(r'^courses/(?P<course_id>\w+)/roster/add', 'teachers.views.add_students'),
+    url(r'^courses/(?P<course_stub>\w+)/roster/add', 'teachers.views.add_students'),
     # view students of a course
-    url(r'^courses/(?P<course_id>\w+)/roster', 'teachers.views.course_roster'),
+    url(r'^courses/(?P<course_stub>\w+)/roster', 'teachers.views.course_roster'),
     # view stats and performance of a course
-    url(r'^courses/(?P<course_id>\w+)', 'teachers.views.view_course'),
+    url(r'^courses/(?P<course_stub>\w+)', 'teachers.views.view_course'),
 
 
     # add a new goal

@@ -7,6 +7,7 @@ from schools.models import Term
 # a new course is created for each term by the teacher
 class Course(models.Model):
     name = models.CharField(max_length=100)
+    stub = models.CharField(max_length=100)
     course_id = models.CharField(max_length=100)
     goals = models.ManyToManyField(Goal)
     teacher = models.ForeignKey(Teacher)
