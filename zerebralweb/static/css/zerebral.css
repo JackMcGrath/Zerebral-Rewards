@@ -130,6 +130,15 @@ a.text-primary:focus {
     margin-left: 50px;
 }
 
+.rounded-bottom-5px {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.student-overview-assessment {
+    margin-bottom: 40px;
+}
 .student-overview-header {
     padding-top:15px;
     -moz-border-radius: 0px;
@@ -137,6 +146,28 @@ a.text-primary:focus {
     border-radius: 40px 40px 0px 0px;
     background-color: #eef0f0;
 }
+
+.student-overview-body {
+    padding-bottom: 20px;
+
+}
+
+.badge-color-green {
+    background-image: -o-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: -moz-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: -webkit-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: -ms-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
+    background-image: linear-gradient(-180deg, #79CF19 0%, #246B16 100%);
+}
+
+.badge-color-red {
+    background-image: -o-linear-gradient(-90deg, #cf361b 0%, #692216 100%);
+    background-image: -moz-linear-gradient(-90deg, #cf361b 0%, #692216 100%);
+    background-image: -webkit-linear-gradient(-90deg, #cf361b 0%, #692216 100%);
+    background-image: -ms-linear-gradient(-90deg, #cf361b 0%, #692216 100%);
+    background-image: linear-gradient(-180deg, #cf361b 0%, #692216 100%);
+}
+
 
 .zerebral-engagement-badge {
     margin-left: 10px;
@@ -147,12 +178,7 @@ a.text-primary:focus {
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
-
-    background-image: -o-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
-    background-image: -moz-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
-    background-image: -webkit-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
-    background-image: -ms-linear-gradient(-90deg, #79CF19 0%, #246B16 100%);
-    background-image: linear-gradient(-180deg, #79CF19 0%, #246B16 100%);
+    text-align: center;
 
 }
 
@@ -160,10 +186,20 @@ a.text-primary:focus {
     display:inline-block;
     font-size: 30px;
     padding-top:25px;
+    text-align: center;
 }
 
 
 .student-overview-assessments {
     margin-top:15px;
     background-color: #eef0f0;
+
+}
+
+.bg-blue {
+    background-color: #0e90d2;
+}
+
+.bg-lightgrey {
+    background-color: #f9f9f9;
 }
