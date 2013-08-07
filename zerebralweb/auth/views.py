@@ -175,7 +175,7 @@ def tos_view(request):
 
                 # change status to needs_consent if it's a student and they haven't yet received it
                 if get_student_for_user(request.user).consent_from_parent:
-                    student_perm = Permission.objects.get(codename='is_teacher')
+                    student_perm = Permission.objects.get(codename='is_student')
                     request.user.user_permissions.add(student_perm)
                 else:
                     consent_perm = Permission.objects.get(codename='needs_consent')

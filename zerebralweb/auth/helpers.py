@@ -3,10 +3,16 @@ import random
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
+from django.contrib.auth.models import User
 
 
 def get_zerebral_user_for_django_user(user):
     return ZerebralUser.objects.get(user=user)
+
+
+def get_django_user_for_student(student):
+    z_user = ZerebralUser.objects.get(student=student)
+    return z_user.user
 
 
 def is_student(user):
@@ -16,6 +22,7 @@ def is_student(user):
         return True
 
     return False
+
 
 def is_teacher(user):
     z_user = get_zerebral_user_for_django_user(user)
