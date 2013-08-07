@@ -1,5 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-parental consent form
+<div class="row">
+	<div class="span12">
+		<h3>parental consent form [{{ student_name }}]</h3><br />
+
+		<form action="?" method="POST">
+          <div class="control-group">
+            <label class="control-label">Digital Signature</label>
+            <div class="controls">
+              <input type="text" name="digital_signature">
+            </div>
+          </div>
+		  <div class="control-group">
+		    <div class="controls">
+		      <button type="submit" class="btn">Agree to Terms</button>
+		    </div>
+		  </div>
+		  {% csrf_token %}
+		</form>
+	</div>
+</div>
 {% endblock %}
