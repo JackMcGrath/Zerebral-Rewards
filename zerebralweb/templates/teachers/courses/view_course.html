@@ -1,5 +1,11 @@
 {% extends "teachers/base.html" %}
 
 {% block content %}
-view course
+    <div class="row">
+        {% include "teachers/courses/parial_courses_navigation.html" %}
+        <div class="span8">
+            view course
+        </div>
+    </div>
+
 {% endblock %}
