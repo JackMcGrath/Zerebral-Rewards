@@ -2,4 +2,75 @@
 
 {% block content %}
 
+    <div class="row">
+        {% include "teachers/courses/parial_courses_navigation.html" %}
+
+        <div class="span8 student-overview" >
+             <div class="row text-center student-overview-header">
+                <div class="6">
+                    <h3>Courses</h3>
+                </div>
+            </div>
+
+            <br/><br/>
+            <div class="student-overview-assessment row">
+                <div class="span3">
+                    <div class="right">
+                        <h3 class="popover-title">Science</h3>
+                        <div class="popover-content">
+                            <table>
+                                <tr>
+                                    <td width="100">Attendence</td>
+                                    <td>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100">Effort</td>
+                                    <td>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2"></span>
+                                        <span class="fui-star-2"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100">Citizenship</td>
+                                    <td>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2"></span>
+                                        <span class="fui-star-2"></span>
+                                        <span class="fui-star-2"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="100">Participation</td>
+                                    <td>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2 text-primary"></span>
+                                        <span class="fui-star-2"></span>
+                                        <span class="fui-star-2"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span1">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 {% endblock %}
