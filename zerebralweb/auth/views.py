@@ -9,6 +9,7 @@ from students.models import Student
 from auth.helpers import *
 from datetime import datetime, timedelta
 from django.db import IntegrityError
+from parents.models import Parent
 
 
 def home_view(request):
@@ -151,11 +152,20 @@ def register_view(request):
             student_name = new_user.first_name + ' ' + new_user.last_name
 
             try:
+                # grab the existing parent or create a new one
+                new_parent = Parent.objects.get(email__iexact=request.POST['parent_email'])
+
+                if new_parent is None:
+                    new_parent = Parent(
+                        email=request.POST['parent_email'],
+                        first_name=request.POST['parent_first_name'],
+                        last_name=request.POST['parent_last_name']
+                    )
+                    new_parent.save()
+
                 new_student = Student(
-                    parent_email=request.POST['parent_email'],
-                    parent_first_name=request.POST['parent_first_name'],
-                    parent_last_name=request.POST['parent_last_name'],
-                    parent_token=generate_token(50)
+                    parent_token=generate_token(50),
+                    parent=new_parent
                 )
                 new_student.save()
             except:
@@ -169,7 +179,7 @@ def register_view(request):
             send_consent_email(
                 request.build_absolute_uri('/parent/consent/'+new_student.parent_token),
                 student_name,
-                new_student.parent_email
+                new_parent.email
             )
 
             z_user = ZerebralUser(user=new_user, student=new_student)

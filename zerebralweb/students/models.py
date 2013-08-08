@@ -3,6 +3,7 @@ from badges.models import Badge
 from goals.models import Goal
 from classes.models import Course
 from students.helpers import generate_shortcode
+from parents.models import Parent
 
 
 
@@ -15,14 +16,11 @@ class Student(models.Model):
     # the digital signature for this student
     consent_signed_by = models.CharField(max_length=200, blank=True, null=True)
 
-    # parent's name
-    parent_first_name = models.CharField(max_length=100, blank=True, null=True)
-    parent_last_name = models.CharField(max_length=100, blank=True, null=True)
-
-    # parent's email to request consent
-    parent_email = models.EmailField(max_length=254)
     # the consent token sent in an email to confirm parent
     parent_token = models.CharField(max_length=50, blank=True, null=True, unique=True)
+
+    # parent linked to this student
+    parent = models.ForeignKey(Parent, blank=True, null=True)
 
     # this should be updated every time an evaluation is submitted (essentially caching the total point calculation)
     pts_earned = models.IntegerField(default=0)
