@@ -1,5 +1,15 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="row">
         {% include "teachers/courses/parial_courses_navigation.html" %}
