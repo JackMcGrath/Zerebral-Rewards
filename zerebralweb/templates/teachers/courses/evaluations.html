@@ -3,9 +3,21 @@
 {% block script-extra %}
     <script>
         $(document).ready(function(){
-            $("#teacher_nav_courses_{{course.stub}}_evaluations").addClass('active');
+            var cur=$("#teacher_nav_courses_{{course.stub}}_evaluations");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
         });
     </script>
+
+
+    <script type='text/javascript'>
+        //override classes
+        $(function() {
+            $(".dropdown-toggle").addClass('btn-primary');
+            $(".dropdown-toggle").removeClass('btn-warning');
+        });
+    </script>
+
 {% endblock %}
 
 {% block content %}
@@ -170,13 +182,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-{% block script-extra %}
-    <script type='text/javascript'>
-        //override classes
-        $(function() {
-            $(".dropdown-toggle").addClass('btn-primary');
-            $(".dropdown-toggle").removeClass('btn-warning');
-        });
-    </script>
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends "teachers/base.html" %}
 
 {% block script-extra %}
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
+    <script>
         $(document).ready(function(){
-
-
+            var cur=$("#teacher_nav_courses_{{course.stub}}");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
         });
     </script>
 {% endblock %}

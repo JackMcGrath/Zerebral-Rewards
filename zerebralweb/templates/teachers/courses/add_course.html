@@ -3,7 +3,9 @@
 {% block script-extra %}
     <script>
         $(document).ready(function(){
-            $("#teacher_nav_courses_add").addClass('active');
+            var cur=$("#teacher_nav_courses_add");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
         });
     </script>
 {% endblock %}

@@ -3,14 +3,14 @@
 {% block script-extra %}
     <script>
         $(document).ready(function(){
-            $("#teacher_nav_courses").addClass('active');
+            var cur=$("#teacher_nav_courses");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
         });
     </script>
 {% endblock %}
 
-
 {% block content %}
-
     <div class="row">
         {% include "teachers/courses/parial_courses_navigation.html" %}
 

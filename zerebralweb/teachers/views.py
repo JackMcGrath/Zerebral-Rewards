@@ -7,10 +7,16 @@ from students.models import EnrolledStudent
 
 
 def dashboard(request):
-    return render(request, 'teachers/dashboard.html')
+    class_teacher = get_teacher_for_user(request.user)
+    courses = Course.objects.filter(teacher=class_teacher)
+
+    return render(request, 'teachers/dashboard.html', {"courses": courses})
 
 
 def add_course(request):
+    class_teacher = get_teacher_for_user(request.user)
+    courses = Course.objects.filter(teacher=class_teacher)
+
     if request.method == 'POST':
         class_name = request.POST['course_name']
         class_stub = make_stub(class_name)
@@ -33,13 +39,16 @@ def add_course(request):
 
             return redirect('/teacher')
 
-    return render(request, 'teachers/courses/add_course.html')
+    return render(request, 'teachers/courses/add_course.html', {'courses': courses})
 
 
 def view_course(request, course_stub):
-    course = Course.objects.get(stub=course_stub, teacher=get_teacher_for_user(request.user))
+    class_teacher = get_teacher_for_user(request.user)
+    courses = Course.objects.filter(teacher=class_teacher)
 
-    return render(request, 'teachers/courses/view_course.html', {'course': course})
+    course = Course.objects.get(stub=course_stub, teacher=class_teacher)
+
+    return render(request, 'teachers/courses/view_course.html', {'course': course, 'courses':courses})
 
 
 def edit_course(request, course_stub):
@@ -67,11 +76,13 @@ def edit_course(request, course_stub):
 
 
 def course_roster(request, course_stub):
-    course = Course.objects.get(stub=course_stub, teacher=get_teacher_for_user(request.user))
+    class_teacher = get_teacher_for_user(request.user)
+    courses = Course.objects.filter(teacher=class_teacher)
+    course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
     students_in_class = EnrolledStudent.objects.filter(course=course)
 
-    return render(request, 'teachers/courses/course_roster.html', {'roster': students_in_class})
+    return render(request, 'teachers/courses/course_roster.html', {'roster': students_in_class, 'courses':courses, 'course':course})
 
 
 def add_students(request, course_stub):
@@ -81,7 +92,11 @@ def add_students(request, course_stub):
 
 
 def view_evaluation(request, course_stub, eval_id):
-    return render(request, 'teachers/courses/evaluations.html')
+    class_teacher = get_teacher_for_user(request.user)
+    courses = Course.objects.filter(teacher=class_teacher)
+    course = Course.objects.get(stub=course_stub, teacher=class_teacher)
+
+    return render(request, 'teachers/courses/evaluations.html', {'courses':courses, 'course':course})
 
 
 def all_goals(request):
