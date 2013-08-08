@@ -2,12 +2,79 @@
 
 {% block script-extra %}
     <script>
+        //set nav active
         $(document).ready(function(){
             var cur=$("#teacher_nav_courses_{{course.stub}}_roster");
             cur.addClass('active');
             $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
         });
     </script>
+
+
+    <!-- STUDENT INVITE PAGE LOGIC -->
+    <script>
+        student_invite_list = [];
+
+        $(document).ready(function(){
+            //cache selectors for speed
+            var invite_students_table = $("#table_invite_students");
+            var invite_students_list = $("#input_students_invite_list");
+            var fname = $("#student_fname");
+            var lname = $("#student_lname");
+            var email = $("#student_email");
+
+            //on clicking add a student
+            $("#btn_add_student").click(function(e){
+                //reset errors
+                $("div.control-group").each(function(i, item){
+                    $(item).removeClass('error');
+                });
+
+                //validate inputs
+                if(fname.val() == "") {
+                    fname.parent().addClass('error');
+                    return;
+                }else if(lname.val() == "") {
+                    lname.parent().addClass('error');
+                    return;
+                }else if(email.val() == ""){
+                    email.parent().addClass('error');
+                    return;
+                }
+
+                //if we're here, we made it!
+                //store students in invite list
+                student_invite_list.push({
+                    'first_name':fname.val(),
+                    'last_name':lname.val(),
+                    'email':email.val()
+                });
+
+                // update hidden form variable
+                invite_students_list.val(JSON.stringify(student_invite_list));
+
+                //add student to table on page
+                student_html = "<tr>";
+                student_html+= "<td>" + fname.val() + "</td>";
+                student_html+= "<td>" + lname.val() + "</td>";
+                student_html+= "<td>" + email.val() + "</td>";
+                student_html+= "</tr>";
+                $("tbody", invite_students_table).append(student_html).slideDown(200);
+
+
+                //reset form
+                fname.val("");
+                lname.val("");
+                email.val("");
+            });
+
+        });
+    </script>
+
+
+
+
+
 {% endblock %}
 
 
@@ -18,28 +85,25 @@
         <div class="span8">
             <h5 class='text-center'>Invite Students</h5>
             <br/><br/>
-
-            <form method="post">
-                {% csrf_token %}
-
                 <div class="row">
                     <div class="span3">
                         <div class=" control-group">
                             <h7>First Name</h7>
-                            <input type="text" value="" placeholder="Bob" class="span3">
+                            <input id="student_fname" type="text" value="" placeholder="Bob" class="span3">
                         </div>
                         <div class=" control-group">
                             <h7>Last Name</h7>
-                            <input type="text" value="" placeholder="Smith" class="span3">
+                            <input id="student_lname" type="text" value="" placeholder="Smith" class="span3">
                         </div>
                         <div class=" control-group">
                             <h7>Email</h7>
-                            <input type="text" value="" placeholder="bob.smith@gmail.com" class="span3">
+                            <input id="student_email"  type="text" value="" placeholder="bob.smith@gmail.com" class="span3">
                         </div>
-                        <input type="submit" value="Add" class='btn btn-large btn-primary pull-right' href="#fakelink"></a>
+                        <input type="submit" id="btn_add_student" value="Add" class='btn btn-large btn-primary pull-right' ></a>
                     </div>
+
                     <div class="span5">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="table_invite_students">
                             <thead>
                                 <tr>
                                     <th>First</th>
@@ -48,22 +112,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Bob</td>
-                                    <td>Carter</td>
-                                    <td>bob.c@gmail.com</td>
-                                </tr>
                             </tbody>
                         </table>
+
+                        <form method="post" id="form_invite_students">
+                            {% csrf_token %}
+                            <input type="submit" value="Send Invites" class='btn btn-large btn-primary pull-right' href="#fakelink"></input>
+                            <input type="hidden" id="input_students_invite_list" name="students"></input>
+                        </form>
+
                     </div>
                 </div>
-                <br/>
 
-
-
-                <div class="row">
-                        <input type="submit" value="Send Invites" class='btn btn-large btn-primary pull-right' href="#fakelink"></a>
-                </div>
 
             </form>
 
