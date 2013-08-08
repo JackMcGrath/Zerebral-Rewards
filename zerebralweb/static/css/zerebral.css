@@ -126,11 +126,8 @@ a.text-primary:focus {
     height: 100px;
 }
 
-.student-overview {
-    margin-left: 50px;
-}
 .span8 > .row {
-    margin-left: 0px;
+    margin-left: -30px;
 }
 
 .rounded-bottom-5px {
@@ -142,7 +139,10 @@ a.text-primary:focus {
 .student-overview-assessment {
     margin-bottom: 40px;
 }
+
 .student-overview-header {
+    margin-left:0px!important;
+
     padding-top:15px;
     -moz-border-radius: 0px;
     -webkit-border-radius: 40px 40px 0px 0px;
