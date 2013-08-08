@@ -571,7 +571,7 @@ blockquote small:before {
 }
 a.text-primary:hover,
 a.text-primary:focus {
-  color: #15967d;
+  color: #ffb058;
 }
 .text-success {
   color: #2ecc71;
@@ -743,7 +743,7 @@ a.muted:focus {
 .btn.btn-primary:hover,
 .btn.btn-primary:focus,
 .btn-group:focus .btn.btn-primary.dropdown-toggle {
-  background-color: #48c9b0;
+  background-color: #ffb058;
 }
 .btn.btn-primary:active,
 .btn-group.open .btn.btn-primary.dropdown-toggle,
@@ -2735,7 +2735,7 @@ textarea[class*="span"] {
 .control-group.focus .btn:hover,
 .control-group.focus .btn:focus,
 .btn-group:focus .control-group.focus .btn.dropdown-toggle {
-  background-color: #48c9b0;
+  background-color: #ffb058;
 }
 .control-group.focus .btn:active,
 .btn-group.open .control-group.focus .btn.dropdown-toggle,
@@ -3371,7 +3371,7 @@ input.search-query {
 }
 .ui-slider-handle:hover,
 .ui-slider-handle:focus {
-  background-color: #48c9b0;
+  background-color: #ffb058;
   outline: none;
 }
 .ui-slider-handle:active {
@@ -3541,7 +3541,7 @@ input.search-query {
 }
 .ui-datepicker .ui-datepicker-prev:hover,
 .ui-datepicker .ui-datepicker-next:hover {
-  background-color: #48c9b0;
+  background-color: #ffb058;
 }
 .ui-datepicker .ui-datepicker-prev:active,
 .ui-datepicker .ui-datepicker-next:active {
@@ -3952,7 +3952,7 @@ input.search-query {
     box-sizing: border-box;
   }
   .pagination > .btn:first-child.btn-primary {
-    border-bottom-color: #48c9b0;
+    border-bottom-color: #ffb058;
   }
   .pagination > .btn:first-child.btn-danger {
     border-bottom-color: #ec7063;
@@ -3992,7 +3992,7 @@ input.search-query {
     box-sizing: border-box;
   }
   .pagination > .btn + ul + .btn.btn-primary {
-    border-bottom-color: #48c9b0;
+    border-bottom-color: #ffb058;
   }
   .pagination > .btn + ul + .btn.btn-danger {
     border-bottom-color: #ec7063;
@@ -5064,7 +5064,7 @@ input.search-query {
 }
 .nav-pills > li > a:hover,
 .nav-pills > li > a:focus {
-  background-color: #48c9b0;
+  background-color: #ffb058;
 }
 .nav-pills > li > a:active {
   background-color: #D08729;
