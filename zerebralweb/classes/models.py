@@ -9,7 +9,7 @@ class Course(models.Model):
     name = models.CharField(max_length=100)
     stub = models.CharField(max_length=100)
     course_id = models.CharField(max_length=100)
-    goals = models.ManyToManyField(Goal)
+    goals = models.ManyToManyField(Goal, blank=True, null=True)
     teacher = models.ForeignKey(Teacher)
     term = models.ForeignKey(Term)
 
