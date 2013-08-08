@@ -10,14 +10,14 @@ import json
 
 def dashboard(request):
     class_teacher = get_teacher_for_user(request.user)
-    courses = Course.objects.filter(teacher=class_teacher)
+    courses = Course.objects.filter(teacher=class_teacher).order_by('name')
 
     return render(request, 'teachers/dashboard.html', {"courses": courses})
 
 
 def add_course(request):
     class_teacher = get_teacher_for_user(request.user)
-    courses = Course.objects.filter(teacher=class_teacher)
+    courses = Course.objects.filter(teacher=class_teacher).order_by('name')
 
     if request.method == 'POST':
         try:
@@ -58,7 +58,7 @@ def add_course(request):
 
 def view_course(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
-    courses = Course.objects.filter(teacher=class_teacher)
+    courses = Course.objects.filter(teacher=class_teacher).order_by('name')
 
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
@@ -101,7 +101,7 @@ def edit_course(request, course_stub):
 
 def course_roster(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
-    courses = Course.objects.filter(teacher=class_teacher)
+    courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
     students_in_class = EnrolledStudent.objects.filter(course=course)
@@ -115,7 +115,7 @@ def course_roster(request, course_stub):
 
 def add_students(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
-    courses = Course.objects.filter(teacher=class_teacher)
+    courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
     # grab the array of students
@@ -161,7 +161,7 @@ def delete_student(request, student_id, course_stub):
 
 def view_evaluation(request, course_stub, eval_id):
     class_teacher = get_teacher_for_user(request.user)
-    courses = Course.objects.filter(teacher=class_teacher)
+    courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
     return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course})
