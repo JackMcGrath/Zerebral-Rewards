@@ -150,8 +150,20 @@ def register_view(request):
             new_user.save()
             student_name = new_user.first_name + ' ' + new_user.last_name
 
-            new_student = Student(parent_email=request.POST['parent_email'], parent_token=generate_token(50))
-            new_student.save()
+            try:
+                new_student = Student(
+                    parent_email=request.POST['parent_email'],
+                    parent_first_name=request.POST['parent_first_name'],
+                    parent_last_name=request.POST['parent_last_name'],
+                    parent_token=generate_token(50)
+                )
+                new_student.save()
+            except:
+                new_user.delete()
+                return render(request, 'auth/register.html', {
+                    'schools': schools,
+                    'error': "Please enter your parent's contact info."
+                })
 
             # send email to parent for consent
             send_consent_email(

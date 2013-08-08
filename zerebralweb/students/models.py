@@ -13,7 +13,11 @@ class Student(models.Model):
     consent_from_parent = models.BooleanField(default=False)
 
     # the digital signature for this student
-    consent_signed_by = models.CharField(max_length=100, blank=True, null=True)
+    consent_signed_by = models.CharField(max_length=200, blank=True, null=True)
+
+    # parent's name
+    parent_first_name = models.CharField(max_length=100, blank=True, null=True)
+    parent_last_name = models.CharField(max_length=100, blank=True, null=True)
 
     # parent's email to request consent
     parent_email = models.EmailField(max_length=254)

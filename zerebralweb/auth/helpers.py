@@ -48,13 +48,13 @@ def generate_token(length):
 
 def send_consent_email(consent_url, student_name, parent_email):
     plaintext = get_template('email/parental_consent.txt')
-    htmly = get_template('email/parental_consent.html')
+    html = get_template('email/parental_consent.html')
 
     d = Context({'consent_url': consent_url, 'student_name': student_name})
 
     subject, from_email, to = 'Zerebral Student Consent Request', 'noreply@zerebral.com', parent_email
     text_content = plaintext.render(d)
-    html_content = htmly.render(d)
+    html_content = html.render(d)
     msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
     msg.attach_alternative(html_content, "text/html")
     msg.send()

@@ -4,6 +4,7 @@ from schools.models import Term
 from classes.models import Course
 from classes.helpers import make_stub
 from students.models import EnrolledStudent
+from teachers.helpers import send_course_invite_email
 import json
 
 
@@ -40,12 +41,12 @@ def add_course(request):
                 new_course.save()
 
                 # forward to the courses' add student view
-                return redirect('/teacher/courses/'+class_stub+'/roster/add')
+                return redirect('/teacher/courses/' + class_stub + '/roster/add')
             else:
                 return render(request, 'teachers/courses/add_course.html', {
-                'courses': courses,
-                'error': 'Class name already exists.'
-            })
+                    'courses': courses,
+                    'error': 'Class name already exists.'
+                })
         except:
             return render(request, 'teachers/courses/add_course.html', {
                 'courses': courses,
@@ -91,9 +92,9 @@ def edit_course(request, course_stub):
                 })
         else:
             return render(request, 'teachers/courses/edit_course.html', {
-                    'course': course,
-                    'error': 'Course could not be found.'
-                })
+                'course': course,
+                'error': 'Course could not be found.'
+            })
 
     return render(request, 'teachers/courses/edit_course.html', {'course': course})
 
@@ -131,9 +132,12 @@ def add_students(request, course_stub):
                 )
                 new_student.save()
 
-                # TODO: send email to student to join course
+                # send email to student to join course
+                invite_url = request.build_absolute_uri('/student/joincourse/'+new_student.join_code)
+                student_name = new_student.first_name + ' ' + new_student.last_name
+                send_course_invite_email(invite_url, student_name, course.name, new_student.email)
 
-                return redirect('/teacher/courses/'+course.stub+'/roster')
+                return redirect('/teacher/courses/' + course.stub + '/roster')
         except:
             return render(request, 'teachers/courses/add_students.html', {
                 'courses': courses,
@@ -141,7 +145,7 @@ def add_students(request, course_stub):
                 'error': 'Error in student inputs.'
             })
 
-    return render(request, 'teachers/courses/add_students.html', {'courses':courses, 'course':course})
+    return render(request, 'teachers/courses/add_students.html', {'courses': courses, 'course': course})
 
 
 def delete_student(request, student_id, course_stub):
@@ -152,7 +156,7 @@ def delete_student(request, student_id, course_stub):
 
     enrolled_student.delete()
 
-    return redirect('/teacher/courses/'+course_stub)
+    return redirect('/teacher/courses/' + course_stub)
 
 
 def view_evaluation(request, course_stub, eval_id):
@@ -160,7 +164,7 @@ def view_evaluation(request, course_stub, eval_id):
     courses = Course.objects.filter(teacher=class_teacher)
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
-    return render(request, 'teachers/courses/evaluations.html', {'courses':courses, 'course':course})
+    return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course})
 
 
 def all_goals(request):
