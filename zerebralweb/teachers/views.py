@@ -3,6 +3,7 @@ from auth.helpers import get_teacher_for_user
 from schools.models import Term
 from classes.models import Course
 from classes.helpers import make_stub
+from students.models import EnrolledStudent
 
 
 def dashboard(request):
@@ -42,16 +43,40 @@ def view_course(request, course_stub):
 
 
 def edit_course(request, course_stub):
-    course = Course.objects.get(stub=course_stub, teacher=get_teacher_for_user(request.user))
+    class_teacher = get_teacher_for_user(request.user)
+    course = Course.objects.get(stub=course_stub, teacher=class_teacher)
+
+    if request.method == 'POST':
+        class_name = request.POST['course_name']
+        class_stub = make_stub(class_name)
+        class_id = request.POST['course_id']
+
+        if course is not None:
+            # make sure the new stub doesn't already exist
+            stub_count = Course.objects.filter(stub=class_stub, teacher=class_teacher).count()
+
+            if stub_count == 0:
+                course.name = class_name
+                course.stub = class_stub
+                course.course_id = class_id
+                course.save()
+
+                return redirect('/teacher')
 
     return render(request, 'teachers/courses/edit_course.html', {'course': course})
 
 
 def course_roster(request, course_stub):
-    return render(request, 'teachers/courses/course_roster.html')
+    course = Course.objects.get(stub=course_stub, teacher=get_teacher_for_user(request.user))
+
+    students_in_class = EnrolledStudent.objects.filter(course=course)
+
+    return render(request, 'teachers/courses/course_roster.html', {'roster': students_in_class})
 
 
 def add_students(request, course_stub):
+    # TODO: send an array of students from the template
+
     return render(request, 'teachers/courses/add_students.html')
 
 
