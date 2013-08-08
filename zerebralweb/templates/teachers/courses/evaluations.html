@@ -1,5 +1,13 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            $("#teacher_nav_courses_{{course.stub}}_evaluations").addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="row">
         {% include "teachers/courses/parial_courses_navigation.html" %}

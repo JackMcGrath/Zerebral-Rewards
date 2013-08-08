@@ -16,19 +16,19 @@
 
         <!-- loop through courses -->
         {% for course in courses %}
-            <li>
+            <li id="teacher_nav_courses_{{ course.stub }}">
               <a href="/teacher/courses/{{ course.stub }}">
                   <span class="fui-radio-unchecked">&nbsp;</span>
                 Spanish II
               </a>
             </li>
-            <li class='active'>
+            <li id="teacher_nav_courses_{{ course.stub }}_roster">
                 <a href="/teacher/courses/{{ course.stub }}/roster" class='nav-sub-link'>
                     <span class="fui-radio-checked">&nbsp;</span>
                     Roster
                 </a>
             </li>
-            <li>
+            <li id="teacher_nav_courses_{{ course.stub }}_evaluations">
               <a href="/teacher/courses/{{ course.stub }}/evaluations/1" class='nav-sub-link'>
                   <span class="fui-radio-unchecked">&nbsp;</span>
                 Evaluations
@@ -38,3 +38,4 @@
         <!-- end courses loop-->
     </ul>
 </div>
+

@@ -1,5 +1,14 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            $("#teacher_nav_courses").addClass('active');
+        });
+    </script>
+{% endblock %}
+
+
 {% block content %}
 
     <div class="row">

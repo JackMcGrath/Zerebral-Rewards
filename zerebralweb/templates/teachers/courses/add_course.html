@@ -1,9 +1,18 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            $("#teacher_nav_courses_add").addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class="row">
         {% include "teachers/courses/parial_courses_navigation.html" %}
         <div class="span8">
             add course
         </div>
-    </div>{% endblock %}
+    </div>
+{% endblock %}
