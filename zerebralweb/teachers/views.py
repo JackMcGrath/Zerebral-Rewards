@@ -93,6 +93,7 @@ def course_roster(request, course_stub):
 
 def add_students(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
+    courses = Course.objects.filter(teacher=class_teacher)
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
     # grab the array of students
@@ -112,7 +113,7 @@ def add_students(request, course_stub):
 
             return redirect('/teacher/courses/'+course.stub+'/roster')
 
-    return render(request, 'teachers/courses/add_students.html')
+    return render(request, 'teachers/courses/add_students.html', {'courses':courses, 'course':course})
 
 
 def delete_student(request, student_id, course_stub):
