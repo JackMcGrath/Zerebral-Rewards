@@ -14,7 +14,24 @@
     <div class="row">
         {% include "teachers/courses/partial_courses_navigation.html" %}
         <div class="span8">
-            add course
+            <h5 class='text-center'>Add Course</h5>
+            <br/><br/>
+            <div class="row">
+                <div class="span4 offset2 control-group huge">
+                    <h7>Name of Course</h7>
+                    <input type="text" value="" placeholder="E.g. Science" class="span4">
+                </div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="span4 offset2 control-group huge">
+                    <h7>Course ID</h7>
+                    <input type="text" value="" placeholder="SCI-101" class="span4">
+                </div>
+            </div>
+            <br/>
         </div>
     </div>
+
 {% endblock %}

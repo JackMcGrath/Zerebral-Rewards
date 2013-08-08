@@ -107,13 +107,16 @@ a.text-primary:focus {
 .bg-green {
     background-color: green;
 }
-
 .bg-white {
     background-color: white;
 }
 
 .bg-orange {
     background-color: #F99E1F;
+}
+
+.fg-green {
+    color: green;
 }
 
 .round-icon {
