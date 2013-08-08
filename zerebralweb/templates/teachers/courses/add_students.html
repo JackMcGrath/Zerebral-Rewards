@@ -1,10 +1,72 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            var cur=$("#teacher_nav_courses_{{course.stub}}_roster");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+        });
+    </script>
+{% endblock %}
+
+
 {% block content %}
     <div class="row">
         {% include "teachers/courses/partial_courses_navigation.html" %}
+
         <div class="span8">
-            add students
+            <h5 class='text-center'>Invite Students</h5>
+            <br/><br/>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="span3">
+                        <div class=" control-group">
+                            <h7>First Name</h7>
+                            <input type="text" value="" placeholder="Bob" class="span3">
+                        </div>
+                        <div class=" control-group">
+                            <h7>Last Name</h7>
+                            <input type="text" value="" placeholder="Smith" class="span3">
+                        </div>
+                        <div class=" control-group">
+                            <h7>Email</h7>
+                            <input type="text" value="" placeholder="bob.smith@gmail.com" class="span3">
+                        </div>
+                        <input type="submit" value="Add" class='btn btn-large btn-primary pull-right' href="#fakelink"></a>
+                    </div>
+                    <div class="span5">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>First</th>
+                                    <th>Last</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bob</td>
+                                    <td>Carter</td>
+                                    <td>bob.c@gmail.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br/>
+
+
+
+                <div class="row">
+                        <input type="submit" value="Send Invites" class='btn btn-large btn-primary pull-right' href="#fakelink"></a>
+                </div>
+
+            </form>
+
         </div>
     </div>
 

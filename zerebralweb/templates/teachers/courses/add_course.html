@@ -16,28 +16,34 @@
         <div class="span8">
             <h5 class='text-center'>Add Course</h5>
             <br/><br/>
-            <div class="row">
-                <div class="span4 offset2 control-group huge">
-                    <h7>Name of Course</h7>
-                    <input type="text" value="" placeholder="E.g. Science" class="span4">
-                </div>
-            </div>
-            <br/>
 
-            <div class="row">
-                <div class="span4 offset2 control-group huge">
-                    <h7>Course ID</h7>
-                    <input type="text" value="" placeholder="SCI-101" class="span4">
-                </div>
-            </div>
+            <form method="post">
+                {% csrf_token %}
 
-            <br/>
-
-            <div class="row">
-                <div class="span4 offset2 control-group huge">
-                    <a class='btn btn-large btn-primary pull-right' href="#fakelink">Create</a>
+                <div class="row">
+                    <div class="span4 offset2 control-group huge">
+                        <h7>Name of Course</h7>
+                        <input name="course_name" type="text" value="" placeholder="E.g. Science" class="span4">
+                    </div>
                 </div>
-            </div>
+                <br/>
+
+                <div class="row">
+                    <div class="span4 offset2 control-group huge">
+                        <h7>Course ID</h7>
+                        <input name="course_id" type="text" value="" placeholder="SCI-101" class="span4">
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div class="span4 offset2 control-group huge">
+                        <input type="submit" value="Create" class='btn btn-large btn-primary pull-right' href="#fakelink"></a>
+                    </div>
+                </div>
+
+            </form>
 
         </div>
     </div>
