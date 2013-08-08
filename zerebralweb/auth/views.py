@@ -8,6 +8,7 @@ from teachers.models import Teacher
 from students.models import Student
 from auth.helpers import *
 from datetime import datetime, timedelta
+from django.db import IntegrityError
 
 
 def home_view(request):
@@ -59,15 +60,30 @@ def register_view(request):
     if request.user.is_authenticated and request.user.is_active:
         return redirect('/')
 
+    # grab all schools to pass onto registration form
+    schools = School.objects.all()
+
     if request.method == 'POST':
         if request.POST['type'] == 'teacher':
-            new_user = User.objects.create_user(
-                username=request.POST['username'],
-                first_name=request.POST['first_name'],
-                last_name=request.POST['last_name'],
-                password=request.POST['password'],
-                email=request.POST['email']
-            )
+            try:
+                new_user = User.objects.create_user(
+                    username=request.POST['username'],
+                    first_name=request.POST['first_name'],
+                    last_name=request.POST['last_name'],
+                    password=request.POST['password'],
+                    email=request.POST['email']
+                )
+            except IntegrityError as e:
+                if str(e) == 'column username is not unique':
+                    return render(request, 'auth/register.html', {
+                        'schools': schools,
+                        'error': 'Username is already taken.'
+                    })
+                else:
+                    return render(request, 'auth/register.html', {
+                        'schools': schools,
+                        'error': 'Registration error. Please try again.'
+                    })
 
             needs_tos = Permission.objects.get(codename='needs_tos')
             new_user.user_permissions.add(needs_tos)
@@ -109,13 +125,25 @@ def register_view(request):
 
             return redirect('/accounts/tos')
         elif request.POST['type'] == 'student':
-            new_user = User.objects.create_user(
-                username=request.POST['username'],
-                first_name=request.POST['first_name'],
-                last_name=request.POST['last_name'],
-                password=request.POST['password'],
-                email=request.POST['email']
-            )
+            try:
+                new_user = User.objects.create_user(
+                    username=request.POST['username'],
+                    first_name=request.POST['first_name'],
+                    last_name=request.POST['last_name'],
+                    password=request.POST['password'],
+                    email=request.POST['email']
+                )
+            except IntegrityError as e:
+                if str(e) == 'column username is not unique':
+                    return render(request, 'auth/register.html', {
+                        'schools': schools,
+                        'error': 'Username is already taken.'
+                    })
+                else:
+                    return render(request, 'auth/register.html', {
+                        'schools': schools,
+                        'error': 'Registration error. Please try again.'
+                    })
 
             needs_tos = Permission.objects.get(codename='needs_tos')
             new_user.user_permissions.add(needs_tos)
@@ -143,7 +171,7 @@ def register_view(request):
 
             return redirect('/accounts/tos')
 
-    schools = School.objects.all()
+
 
     return render(request, 'auth/register.html', {'schools': schools})
 

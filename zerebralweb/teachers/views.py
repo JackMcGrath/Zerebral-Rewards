@@ -19,27 +19,38 @@ def add_course(request):
     courses = Course.objects.filter(teacher=class_teacher)
 
     if request.method == 'POST':
-        class_name = request.POST['course_name']
-        class_stub = make_stub(class_name)
-        class_id = request.POST['course_id']
-        class_teacher = get_teacher_for_user(request.user)
-        class_term = Term.objects.get(school=class_teacher.school)
+        try:
+            class_name = request.POST['course_name']
+            class_stub = make_stub(class_name)
+            class_id = request.POST['course_id']
+            class_teacher = get_teacher_for_user(request.user)
+            class_term = Term.objects.get(school=class_teacher.school)
 
-        # make sure this course doesn't already exist (check via stub)
-        stub_count = Course.objects.filter(stub=class_stub, teacher=class_teacher).count()
+            # make sure this course doesn't already exist (check via stub)
+            stub_count = Course.objects.filter(stub=class_stub, teacher=class_teacher).count()
 
-        if stub_count == 0:
-            new_course = Course(
-                name=class_name,
-                stub=class_stub,
-                course_id=class_id,
-                teacher=class_teacher,
-                term=class_term
-            )
-            new_course.save()
+            if stub_count == 0:
+                new_course = Course(
+                    name=class_name,
+                    stub=class_stub,
+                    course_id=class_id,
+                    teacher=class_teacher,
+                    term=class_term
+                )
+                new_course.save()
 
-            # forward to the courses' add student view
-            return redirect('/teacher/courses/'+class_stub+'/roster/add')
+                # forward to the courses' add student view
+                return redirect('/teacher/courses/'+class_stub+'/roster/add')
+            else:
+                return render(request, 'teachers/courses/add_course.html', {
+                'courses': courses,
+                'error': 'Class name already exists.'
+            })
+        except:
+            return render(request, 'teachers/courses/add_course.html', {
+                'courses': courses,
+                'error': 'Could not create class. Please try again.'
+            })
 
     return render(request, 'teachers/courses/add_course.html', {'courses': courses})
 
@@ -73,6 +84,16 @@ def edit_course(request, course_stub):
                 course.save()
 
                 return redirect('/teacher')
+            else:
+                return render(request, 'teachers/courses/edit_course.html', {
+                    'course': course,
+                    'error': 'Class name already exists.'
+                })
+        else:
+            return render(request, 'teachers/courses/edit_course.html', {
+                    'course': course,
+                    'error': 'Course could not be found.'
+                })
 
     return render(request, 'teachers/courses/edit_course.html', {'course': course})
 
@@ -98,20 +119,27 @@ def add_students(request, course_stub):
 
     # grab the array of students
     if request.method == 'POST':
-        students_json = json.loads(request.POST['students'])
+        try:
+            students_json = json.loads(request.POST['students'])
 
-        for student in students_json:
-            new_student = EnrolledStudent(
-                course=course,
-                first_name=student['first_name'],
-                last_name=student['last_name'],
-                email=student['email']
-            )
-            new_student.save()
+            for student in students_json:
+                new_student = EnrolledStudent(
+                    course=course,
+                    first_name=student['first_name'],
+                    last_name=student['last_name'],
+                    email=student['email']
+                )
+                new_student.save()
 
-            # TODO: send email to student to join course
+                # TODO: send email to student to join course
 
-            return redirect('/teacher/courses/'+course.stub+'/roster')
+                return redirect('/teacher/courses/'+course.stub+'/roster')
+        except:
+            return render(request, 'teachers/courses/add_students.html', {
+                'courses': courses,
+                'course': course,
+                'error': 'Error in student inputs.'
+            })
 
     return render(request, 'teachers/courses/add_students.html', {'courses':courses, 'course':course})
 

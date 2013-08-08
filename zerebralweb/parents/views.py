@@ -6,7 +6,14 @@ from auth.helpers import get_django_user_for_student
 
 
 def consent(request, consent_token):
-    student = Student.objects.get(parent_token=consent_token)
+    try:
+        student = Student.objects.get(parent_token=consent_token)
+    except:
+        return render(request, 'parents/consent.html', {
+            'student_name': 'Not Found',
+            'error': 'Student not found or consent has already been granted.'
+        })
+
     d_user = get_django_user_for_student(student)
     student_full_name = d_user.first_name + ' ' + d_user.last_name
 
@@ -26,6 +33,11 @@ def consent(request, consent_token):
                     student_perm = Permission.objects.get(codename='is_student')
                     d_user.user_permissions.add(student_perm)
                     d_user.save()
+        else:
+            return render(request, 'parents/consent.html', {
+                'student_name': student_full_name,
+                'error': 'Please enter your digital signature.'
+            })
 
 
     return render(request, 'parents/consent.html', {'student_name': student_full_name})
