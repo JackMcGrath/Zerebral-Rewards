@@ -91,6 +91,10 @@ def add_students(request, course_stub):
     return render(request, 'teachers/courses/add_students.html')
 
 
+def delete_student(request, student_id):
+    pass
+
+
 def view_evaluation(request, course_stub, eval_id):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher)

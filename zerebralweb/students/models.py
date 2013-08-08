@@ -5,30 +5,6 @@ from classes.models import Course
 from students.helpers import generate_shortcode
 
 
-# this is how we track students without them joining yet and link them via join codes for the course
-class EnrolledStudent(models.Model):
-    course = models.ForeignKey(Course)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=254, blank=True, null=True)
-    join_code = models.CharField(max_length=50, unique=True)
-    # has a student been linked with this enrollment?
-    linked = models.BooleanField(default=False)
-
-    def save(self, *args, **kwargs):
-        save_success = False
-        while not save_success:
-            try:
-                # automatically generate a short code for each enrolled student before saving
-                self.join_code = generate_shortcode(10)
-                super(EnrolledStudent, self).save(*args, **kwargs)  # Call the "real" save() method.
-                save_success = True
-            except:
-                # token collision, regen
-                pass
-
-    def __unicode__(self):
-        return unicode(self.first_name + ' ' + self.last_name + ' enrolled in ' + self.course.name)
 
 
 # student
@@ -44,10 +20,6 @@ class Student(models.Model):
     # the consent token sent in an email to confirm parent
     parent_token = models.CharField(max_length=50, blank=True, null=True, unique=True)
 
-    # linked courses
-    enrolled_courses = models.ManyToManyField(EnrolledStudent, blank=True, null=True, related_name='enrolled_courses')
-    archived_courses = models.ManyToManyField(EnrolledStudent, blank=True, null=True, related_name='archived_courses')
-
     # this should be updated every time an evaluation is submitted (essentially caching the total point calculation)
     pts_earned = models.IntegerField(default=0)
     pts_spent = models.IntegerField(default=0)
@@ -57,3 +29,30 @@ class Student(models.Model):
 
     def __unicode__(self):
         return unicode('Zerebral Student Profile')
+
+
+
+# this is how we track students without them joining yet and link them via join codes for the course
+class EnrolledStudent(models.Model):
+    course = models.ForeignKey(Course)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=254, blank=True, null=True)
+    join_code = models.CharField(max_length=50, unique=True)
+    # has a student been linked with this enrollment?
+    student = models.ForeignKey(Student, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        save_success = False
+        while not save_success:
+            try:
+                # automatically generate a short code for each enrolled student before saving
+                self.join_code = generate_shortcode(10)
+                super(EnrolledStudent, self).save(*args, **kwargs)  # Call the "real" save() method.
+                save_success = True
+            except:
+                # token collision, regen
+                pass
+
+    def __unicode__(self):
+        return unicode(self.first_name + ' ' + self.last_name + ' enrolled in ' + self.course.name)
