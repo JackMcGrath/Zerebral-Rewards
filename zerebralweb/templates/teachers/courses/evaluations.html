@@ -21,11 +21,48 @@
 
 
     <script type='text/javascript'>
-        $(document).ready(function(){
-            $("select[name='week']").selectpicker({style: 'btn-small btn-primary'});
+
+        //display tooltips on week dots
+        $("[data-toggle=tooltip]").tooltip();
+
+        $("td > span").css('cursor','pointer');
+
+        //hover logic for stars
+        $("tr > td > span").hover(function(evt){
+            //onhover
+
+            //calculate the index (from 0) of our current star
+            current_star = $(this).siblings().size() - $(this).nextAll().size();
+
+            //remove color from all stars
+            $(this).siblings().removeClass('text-primary');
+
+            //re-add color to stars leading up to the one we're currently hovering
+            $(this).siblings().each(function(i,e){
+                if(i < current_star) $(e).addClass('text-primary');
+            });
+
+            //add it to our current star
+            $(this).addClass('text-primary');
+
+
+        },function(evt){
+            //hover out
+            //somehow return stars to original value unless it was clicked
         });
 
-        $("[data-toggle=tooltip]").tooltip();
+        //click logic for stars
+        $("tr > td > span").click(function(evt){
+            //onclick
+            //calculate the new score for the current metric
+            new_score = $(this).siblings().size()+1 - $(this).nextAll().size();
+
+            // DO SOMETHING WITH NEW SCORE
+
+            alert("new value "+ new_score);
+
+        });
+
 
     </script>
 
@@ -52,10 +89,9 @@
                     <tr>
                         <th></th>
                         <th>Grade</th>
-                        <th>Attendance</th>
-                        <th>Effort</th>
-                        <th>Citizenship</th>
-                        <th>Participation</th>
+                        {% for assessment in evals.0.assessements %}
+                            <th>assessment.point_category.name</th>
+                        {% endfor %}
                         <th>Notes</th>
                     </tr>
                 </thead>
@@ -63,7 +99,7 @@
                     <tr>
                         <td>John<br>Smith</td>
                         <td>85%</td>
-                        <td  class="evaluations-5star">
+                        <td class="evaluations-5star">
                             <span class='fui-star-2 text-primary'></span>
                             <span class='fui-star-2 text-primary'></span>
                             <span class='fui-star-2 text-primary'></span>
