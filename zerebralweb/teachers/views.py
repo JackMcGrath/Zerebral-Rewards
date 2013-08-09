@@ -21,7 +21,7 @@ def dashboard(request):
 def add_course(request):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
-    terms = Term.objects.filter(school=class_teacher.school)
+    terms = Term.objects.filter(school=class_teacher.school).order_by('begin_date')
 
     if request.method == 'POST':
         try:
