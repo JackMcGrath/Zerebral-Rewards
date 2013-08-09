@@ -21,6 +21,7 @@ def dashboard(request):
 def add_course(request):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
+    terms = Term.objects.filter(school=class_teacher.school)
 
     if request.method == 'POST':
         try:
@@ -28,7 +29,7 @@ def add_course(request):
             class_stub = make_stub(class_name)
             class_id = request.POST['course_id']
             class_teacher = get_teacher_for_user(request.user)
-            class_term = Term.objects.get(school=class_teacher.school)
+            class_term = Term.objects.get(pk=int(request.POST['course_term']))
 
             # make sure this course doesn't already exist (check via stub)
             stub_count = Course.objects.filter(stub=class_stub, teacher=class_teacher).count()
@@ -56,7 +57,7 @@ def add_course(request):
                 'error': 'Could not create class. Please try again.'
             })
 
-    return render(request, 'teachers/courses/add_course.html', {'courses': courses})
+    return render(request, 'teachers/courses/add_course.html', {'courses': courses, 'terms': terms})
 
 
 @permission_required('auth.is_teacher')

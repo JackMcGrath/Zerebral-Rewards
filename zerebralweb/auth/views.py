@@ -94,24 +94,6 @@ def register_view(request):
             # grab the selected school model
             home_school = School.objects.get(pk=request.POST['school'])
 
-            # count how many terms exist for the teacher's school
-            term_count = Term.objects.filter(school=home_school).count()
-            # we need to create a new term for this school
-            if term_count < 1:
-                attendance = PointCategory.objects.get(name='Attendance')
-                effort = PointCategory.objects.get(name='Effort')
-                citizenship = PointCategory.objects.get(name='Citizenship')
-                participation = PointCategory.objects.get(name='Participation')
-
-                new_term = Term(
-                    school=home_school,
-                    begin_date=datetime.now(),
-                    end_date=(datetime.now()+timedelta(days=365))
-                )
-                new_term.save()
-                new_term.point_categories.add(attendance, effort, citizenship, participation)
-                new_term.save()
-
             new_teacher = Teacher(school=home_school)
             new_teacher.save()
 

@@ -27,6 +27,7 @@ class PointCategory(models.Model):
 
 # terms hold classes, the point categories, and begin/end date
 class Term(models.Model):
+    alias = models.CharField(max_length=100)
     school = models.ForeignKey(School)
     begin_date = models.DateField()
     end_date = models.DateField()

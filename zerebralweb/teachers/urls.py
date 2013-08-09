@@ -28,7 +28,7 @@ urlpatterns = patterns('',
     # list showing all goals the teacher has created
     url(r'^goals', 'teachers.views.all_goals'),
 
-    # view all pending action plans (option to approve or revise
+    # view all pending action plans (option to approve or revise)
     url(r'^actionplans', 'teachers.views.action_plans'),
 
     # edit teacher profile/site settings

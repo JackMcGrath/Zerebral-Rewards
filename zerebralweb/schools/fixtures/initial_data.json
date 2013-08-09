@@ -32,6 +32,7 @@
     }
   },
 
+
   {
     "model": "schools.school",
     "pk": 1,
@@ -41,6 +42,19 @@
       "city": "Flint",
       "state": "MI",
       "zip_code": "48504"
+    }
+  },
+
+
+  {
+    "model": "schools.term",
+    "pk": 1,
+    "fields": {
+      "alias": "Summer 2013",
+      "school": 1,
+      "begin_date": "2013-08-01",
+      "end_date": "2013-12-01",
+      "point_categories": [1, 2, 3, 4]
     }
   }
 ]
