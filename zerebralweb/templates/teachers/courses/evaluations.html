@@ -24,6 +24,9 @@
         $(document).ready(function(){
             $("select[name='week']").selectpicker({style: 'btn-small btn-primary'});
         });
+
+        $("[data-toggle=tooltip]").tooltip();
+
     </script>
 
 {% endblock %}
@@ -37,19 +40,9 @@
             <div class="pagination pagination-minimal text-center">
               <ul>
                 <li style="display:none" class="previous"><a href="#fakelink" class=""></a></li>
-                <li><a class="bg-orange" href="1">1</a></li>
-                <li><a href="2">2</a></li>
-                <li><a href="3">3</a></li>
-                <li class="active"><a href="4">4</a></li>
-                <li><a href="5">5</a></li>
-                <li><a href="#fakelink">6</a></li>
-                <li><a href="#fakelink">7</a></li>
-                <li><a href="#fakelink">8</a></li>
-                <li><a href="#fakelink">9</a></li>
-                <li><a href="#fakelink">10</a></li>
-                <li><a href="#fakelink">11</a></li>
-                <li><a href="#fakelink">12</a></li>
-
+                {% for week in weeks %}
+                    <li data-toggle="tooltip" data-placement="top" data-tooltip-style="" title="" data-original-title="Week of {{ week.week_start }}"><a class="bg-orange" href="{{ week.week_no }}">{{ week.week_no }}</a></li>
+                {% endfor %}
                 <li style="display:none" class="next"><a href="#fakelink" class=""></a></li>
               </ul>
             </div>
