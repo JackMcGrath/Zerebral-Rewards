@@ -1,5 +1,52 @@
 {% extends "teachers/base.html" %}
 
 {% block content %}
-all goals
+    <div class="row">
+        {% include "teachers/goals/partial_goals_navigation.html" %}
+        <div class='span8' id='goals-nav'>
+            <span>View</span>&nbsp;&nbsp;&nbsp;
+            <a href='#fake-link'>All </a>&nbsp;|&nbsp;
+            <a href='#fake-link'>Redeemed </a>&nbsp;|&nbsp;
+            <a href='#fake-link'>Expired Goals </a>
+        </div>
+        <div class='span8' id='goal-list'>
+            <div class='goal-list-item span8'>
+                <div class='span2'>
+                    <img class='goal-icon' src='{{ STATIC_URL }}images/icons/Yin-and-Yang_2x.png' /><br>
+                    <p class='text-center goal-title'>Free Assignment</p>
+                </div>
+                <div class='span5'>
+                    Name: Free Homework Assignment<br>
+                    Goal: 120 pts<br>
+                    Description: Reach the goal of 120 points to earn 1 free homework assignment<br>
+                    Earned By: 25<br>
+                    Redeemed By: 12<br>
+                </div>
+            </div>
+            <div class='goal-list-item span8'>
+                <div class='span2'>
+                    <img class='goal-icon' src='{{ STATIC_URL }}images/icons/Yin-and-Yang_2x.png' /><br>
+                    <p class='text-center goal-title'>Extra Credit</p>
+                </div>
+                <div class='span5'>
+                    Name: Extra Credit<br>
+                    Goal: 300 pts<br>
+                    Description: Reach the goal of 300 points to earn 10 points extra credit on any assignment<br>
+                    Time Frame: Offer good until 4/1/13<br>
+                </div>
+            </div>
+            <div class='goal-list-item span8'>
+                <div class='span2'>
+                    <img class='goal-icon' src='{{ STATIC_URL }}images/icons/Yin-and-Yang_2x.png' /><br>
+                    <p class='text-center goal-title'>Free Assignment</p>
+                </div>
+                <div class='span5'>
+                    Name: Free Homework Assignment<br>
+                    Goal: 120 pts<br>
+                    Description: Reach the goal of 120 points to earn 1 free homework assignment<br>
+                    Time Frame: Offer good until 4/1/13<br>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
