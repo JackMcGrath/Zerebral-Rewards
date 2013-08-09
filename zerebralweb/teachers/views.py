@@ -4,10 +4,11 @@ from schools.models import Term
 from classes.models import Course
 from classes.helpers import make_stub
 from students.models import EnrolledStudent
+from evaluations.models import Evaluation
 from teachers.helpers import send_course_invite_email
 import json
 from django.contrib.auth.decorators import permission_required
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 
 @permission_required('auth.is_teacher')
@@ -181,7 +182,27 @@ def delete_student(request, student_id, course_stub):
 
 
 @permission_required('auth.is_teacher')
-def view_evaluation(request, course_stub, eval_id):
+def redirect_current_week(request, course_stub):
+    class_teacher = get_teacher_for_user(request.user)
+    course = Course.objects.get(stub=course_stub, teacher=class_teacher)
+
+    # calculate out weeks for term and send them to the template
+    current_week = course.term.begin_date
+    week_count = 1
+
+    while current_week < course.term.end_date:
+        if current_week <= date.today() <= (current_week + timedelta(days=7)):
+            return redirect('/teacher/courses/' + course_stub + '/evaluations/' + str(week_count))
+
+        week_count += 1
+        current_week += timedelta(days=7)
+
+    # well this isn't good, default to first week
+    return redirect('/teacher/courses/' + course_stub + '/evaluations/1')
+
+
+@permission_required('auth.is_teacher')
+def view_evaluation(request, course_stub, week_no):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
@@ -196,11 +217,14 @@ def view_evaluation(request, course_stub, eval_id):
         week_count += 1
         current_week += timedelta(days=7)
 
+    # grab all the evaluations from this week and course
+    evals = Evaluation.objects.filter(course=course, week=week_no)
+
     if request.method == 'POST':
         pass
         # TODO: handle update to evaluation models
 
-    return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course, 'weeks': weeks})
+    return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course, 'weeks': weeks, 'evals': evals})
 
 
 @permission_required('auth.is_teacher')

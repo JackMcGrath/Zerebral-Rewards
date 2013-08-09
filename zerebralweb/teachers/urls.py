@@ -8,7 +8,9 @@ urlpatterns = patterns('',
     # add a new course
     url(r'^courses/add', 'teachers.views.add_course'),
     # view (and edit) an evaluation for a course
-    url(r'^courses/(?P<course_stub>\w+)/evaluations/(?P<eval_id>\w+)', 'teachers.views.view_evaluation'),
+    url(r'^courses/(?P<course_stub>\w+)/evaluations/(?P<week_no>\w+)', 'teachers.views.view_evaluation'),
+    # view (and edit) an evaluation for a course
+    url(r'^courses/(?P<course_stub>\w+)/evaluations', 'teachers.views.redirect_current_week'),
     # edit a course
     url(r'^courses/(?P<course_stub>\w+)/edit', 'teachers.views.edit_course'),
     # delete student from course
