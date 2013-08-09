@@ -6,8 +6,10 @@ from classes.helpers import make_stub
 from students.models import EnrolledStudent
 from teachers.helpers import send_course_invite_email
 import json
+from django.contrib.auth.decorators import permission_required
 
 
+@permission_required('auth.is_teacher')
 def dashboard(request):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
@@ -15,6 +17,7 @@ def dashboard(request):
     return render(request, 'teachers/dashboard.html', {"courses": courses})
 
 
+@permission_required('auth.is_teacher')
 def add_course(request):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
@@ -56,6 +59,7 @@ def add_course(request):
     return render(request, 'teachers/courses/add_course.html', {'courses': courses})
 
 
+@permission_required('auth.is_teacher')
 def view_course(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
@@ -65,6 +69,7 @@ def view_course(request, course_stub):
     return render(request, 'teachers/courses/view_course.html', {'course': course, 'courses': courses})
 
 
+@permission_required('auth.is_teacher')
 def edit_course(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
@@ -99,6 +104,7 @@ def edit_course(request, course_stub):
     return render(request, 'teachers/courses/edit_course.html', {'course': course})
 
 
+@permission_required('auth.is_teacher')
 def course_roster(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
@@ -113,6 +119,7 @@ def course_roster(request, course_stub):
     })
 
 
+@permission_required('auth.is_teacher')
 def add_students(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
@@ -148,6 +155,7 @@ def add_students(request, course_stub):
     return render(request, 'teachers/courses/add_students.html', {'courses': courses, 'course': course})
 
 
+@permission_required('auth.is_teacher')
 def delete_student(request, student_id, course_stub):
     class_teacher = get_teacher_for_user(request.user)
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
@@ -159,6 +167,7 @@ def delete_student(request, student_id, course_stub):
     return redirect('/teacher/courses/' + course_stub)
 
 
+@permission_required('auth.is_teacher')
 def view_evaluation(request, course_stub, eval_id):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
@@ -167,29 +176,36 @@ def view_evaluation(request, course_stub, eval_id):
     return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course})
 
 
+@permission_required('auth.is_teacher')
 def all_goals(request):
     return render(request, 'teachers/goals/all_goals.html')
 
 
+@permission_required('auth.is_teacher')
 def add_goal(request):
     return render(request, 'teachers/goals/add_goal.html')
 
 
+@permission_required('auth.is_teacher')
 def edit_goal(request, goal_id):
     return render(request, 'teachers/goals/edit_goal.html')
 
 
+@permission_required('auth.is_teacher')
 def approve_goals(request):
     return render(request, 'teachers/goals/approve_goals.html')
 
 
+@permission_required('auth.is_teacher')
 def action_plans(request):
     return render(request, 'teachers/actionplans/manage_plans.html')
 
 
+@permission_required('auth.is_teacher')
 def settings(request):
     return render(request, 'teachers/settings/edit_profile.html')
 
 
+@permission_required('auth.is_teacher')
 def notifications(request):
     return render(request, 'notifications/teachers.html')

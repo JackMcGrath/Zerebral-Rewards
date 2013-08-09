@@ -151,10 +151,13 @@ def register_view(request):
             new_user.save()
             student_name = new_user.first_name + ' ' + new_user.last_name
 
+            # grab the existing parent or create a new one
             try:
-                # grab the existing parent or create a new one
                 new_parent = Parent.objects.get(email__iexact=request.POST['parent_email'])
+            except:
+                new_parent = None
 
+            try:
                 if new_parent is None:
                     new_parent = Parent(
                         email=request.POST['parent_email'],
@@ -173,7 +176,7 @@ def register_view(request):
                 return render(request, 'auth/register.html', {
                     'schools': schools,
                     'error': "Please enter your parent's contact info."
-                })
+               })
 
             # send email to parent for consent
             send_consent_email(
