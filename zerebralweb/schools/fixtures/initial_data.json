@@ -52,8 +52,30 @@
     "fields": {
       "alias": "Summer 2013",
       "school": 1,
-      "begin_date": "2013-08-01",
-      "end_date": "2013-12-01",
+      "begin_date": "2013-07-15",
+      "end_date": "2013-09-28",
+      "point_categories": [1, 2, 3, 4]
+    }
+  },
+  {
+    "model": "schools.term",
+    "pk": 2,
+    "fields": {
+      "alias": "Fall 2013",
+      "school": 1,
+      "begin_date": "2013-10-07",
+      "end_date": "2013-12-21",
+      "point_categories": [1, 2, 3, 4]
+    }
+  },
+  {
+    "model": "schools.term",
+    "pk": 3,
+    "fields": {
+      "alias": "Winter 2014",
+      "school": 1,
+      "begin_date": "2014-01-13",
+      "end_date": "2014-03-29",
       "point_categories": [1, 2, 3, 4]
     }
   }
