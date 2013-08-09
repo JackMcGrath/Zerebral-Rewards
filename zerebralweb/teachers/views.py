@@ -156,7 +156,7 @@ def add_students(request, course_stub):
                 student_name = new_student.first_name + ' ' + new_student.last_name
                 send_course_invite_email(invite_url, student_name, course.name, new_student.email)
 
-                return redirect('/teacher/courses/' + course.stub + '/roster')
+            return redirect('/teacher/courses/' + course.stub + '/roster')
         except:
             return render(request, 'teachers/courses/add_students.html', {
                 'courses': courses,
