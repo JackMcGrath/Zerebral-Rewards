@@ -7,6 +7,7 @@ from students.models import EnrolledStudent
 from teachers.helpers import send_course_invite_email
 import json
 from django.contrib.auth.decorators import permission_required
+from datetime import datetime, timedelta
 
 
 @permission_required('auth.is_teacher')
@@ -185,13 +186,21 @@ def view_evaluation(request, course_stub, eval_id):
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
-    # TODO: calculate out weeks for term and send them to the template
+    # calculate out weeks for term and send them to the template
+    weeks = []
+    current_week = course.term.begin_date
+    week_count = 1
+
+    while current_week < course.term.end_date:
+        weeks.append({week_count: str(current_week)})
+        week_count += 1
+        current_week += timedelta(days=7)
 
     if request.method == 'POST':
         pass
         # TODO: handle update to evaluation models
 
-    return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course})
+    return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course, 'weeks': weeks})
 
 
 @permission_required('auth.is_teacher')
