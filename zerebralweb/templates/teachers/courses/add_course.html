@@ -8,6 +8,12 @@
             $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
         });
     </script>
+
+    <script>
+        $(document).ready(function(){
+            $("select[name='course_term']").selectpicker({style: 'btn-small btn-primary'});
+        });
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -34,6 +40,16 @@
                         <input name="course_id" type="text" value="" placeholder="SCI-101" class="span4">
                     </div>
                 </div>
+                <div class="row">
+                    <div class="span4 offset2">
+                        <select name='course_term' class='select mbl'>
+                            {% for term in terms %}
+                            <option value='{{ term.pk }}'>{{ term.alias }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
 
                 <br/>
 

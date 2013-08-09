@@ -8,7 +8,6 @@
             font-size: 12px;
         }
     </style>
-
 {% endblock %}
 
 {% block script-extra %}
@@ -22,10 +21,8 @@
 
 
     <script type='text/javascript'>
-        //override classes
-        $(function() {
-            $(".dropdown-toggle").addClass('btn-primary');
-            $(".dropdown-toggle").removeClass('btn-warning');
+        $(document).ready(function(){
+            $("select[name='week']").selectpicker({style: 'btn-small btn-primary'});
         });
     </script>
 
@@ -36,7 +33,7 @@
         {% include "teachers/courses/partial_courses_navigation.html" %}
         <div id='evaluations' class='span8'>
             <h5 class='text-center'>{{ course.name }} Evaluations:</h5>
-            <select name='small' class='select mbl eval-dropdown'>
+            <select name='week' class='select mbl eval-dropdown'>
                 <option value='0'>Week of 3/11/13</option>
                 <option value='1'>Week of 3/04/13</option>
             </select>
