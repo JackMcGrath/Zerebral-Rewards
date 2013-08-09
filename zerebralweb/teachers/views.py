@@ -5,10 +5,11 @@ from classes.models import Course
 from classes.helpers import make_stub
 from students.models import EnrolledStudent
 from evaluations.models import Evaluation
-from teachers.helpers import send_course_invite_email
+from teachers.helpers import send_course_invite_email, get_current_week
 import json
 from django.contrib.auth.decorators import permission_required
-from datetime import datetime, timedelta, date
+from datetime import timedelta, date
+from operator import itemgetter
 
 
 @permission_required('auth.is_teacher')
@@ -186,19 +187,9 @@ def redirect_current_week(request, course_stub):
     class_teacher = get_teacher_for_user(request.user)
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
 
-    # calculate out weeks for term and send them to the template
-    current_week = course.term.begin_date
-    week_count = 1
+    current_week = get_current_week(course.term.begin_date, course.term.end_date)
 
-    while current_week < course.term.end_date:
-        if current_week <= date.today() <= (current_week + timedelta(days=7)):
-            return redirect('/teacher/courses/' + course_stub + '/evaluations/' + str(week_count))
-
-        week_count += 1
-        current_week += timedelta(days=7)
-
-    # well this isn't good, default to first week
-    return redirect('/teacher/courses/' + course_stub + '/evaluations/1')
+    return redirect('/teacher/courses/' + course_stub + '/evaluations/' + str(current_week))
 
 
 @permission_required('auth.is_teacher')
@@ -206,6 +197,8 @@ def view_evaluation(request, course_stub, week_no):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
+    students = EnrolledStudent.objects.filter(course=course).order_by('first_name', 'last_name')
+    student_evals = []
 
     # calculate out weeks for term and send them to the template
     weeks = []
@@ -215,12 +208,45 @@ def view_evaluation(request, course_stub, week_no):
     while current_week < course.term.end_date:
         evals_for_this_week = (Evaluation.objects.filter(course=course, week=week_count, submitted=True).count() > 0)
 
-        weeks.append({'week_no': week_count, 'week_start': str(current_week), 'submitted': evals_for_this_week})
+        is_current_week = current_week <= date.today() <= (current_week + timedelta(days=7))
+
+        weeks.append({
+            'week_no': week_count,
+            'week_start': str(current_week),
+            'submitted': evals_for_this_week,
+            'current': is_current_week
+        })
         week_count += 1
         current_week += timedelta(days=7)
 
-    # grab all the evaluations from this week and course
-    evals = Evaluation.objects.filter(course=course, week=week_no)
+    # get all point categories
+    point_categories = course.term.point_categories.all().order_by('name')
+
+    # parse through students and evaluations and place combined results in student_evals
+    for student in students:
+        combined_student = {}
+        combined_student['first_name'] = student.first_name
+        combined_student['last_name'] = student.last_name
+
+        # try to grab an evaluation if it exists
+        try:
+            student_eval = Evaluation.objects.get(student=student, week=week_no, submitted=True)
+            combined_student['evaluation'] = {}
+            combined_student['evaluation']['point_categories'] = []
+
+            # return the student's assessments ordered by point_category name (abc)
+            ordered_assesments = sorted(student_eval.assessments.all(), key=itemgetter('pg'))
+
+            for assn in ordered_assesments:
+                combined_student['evaluation']['point_categories'].append(assn)
+
+            combined_student['evaluation']['grade_percent'] = student_eval.grade_percent
+            combined_student['evaluation']['engagement_percent'] = student_eval.engagement_percent
+            combined_student['evaluation']['note'] = student_eval.note
+        except:
+            pass
+
+        student_evals.append(combined_student)
 
     # TODO: handle update to evaluation models
     if request.method == 'POST':
@@ -230,7 +256,8 @@ def view_evaluation(request, course_stub, week_no):
         'courses': courses,
         'course': course,
         'weeks': weeks,
-        'evals': evals
+        'point_categories': point_categories,
+        'evals': student_evals
     })
 
 

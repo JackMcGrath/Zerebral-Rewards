@@ -8,6 +8,15 @@ class Assessment(models.Model):
     point_category = models.ForeignKey(PointCategory)
     score = models.IntegerField()
 
+    def __unicode__(self):
+        return unicode(self.point_category.name)
+
+    def __getitem__(self, key):
+        if key == 'pg':
+            return unicode(self.point_category.name)
+        else:
+            return None
+
 # an evaluation recorded by the teacher for a particular class/student
 class Evaluation(models.Model):
     # there is one enrolled student per class
@@ -21,4 +30,5 @@ class Evaluation(models.Model):
     note = models.CharField(max_length=500)
 
     def __unicode__(self):
-        return unicode(self.student + ' (' + self.date + ')')
+        full_name = self.student.first_name + ' ' + self.student.last_name
+        return unicode(full_name + ' (Week ' + str(self.week) + ')')
