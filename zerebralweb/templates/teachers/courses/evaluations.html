@@ -45,7 +45,6 @@
             //add it to our current star
             $(this).addClass('text-primary');
 
-
         },function(evt){
             //hover out
             //somehow return stars to original value unless it was clicked
@@ -89,145 +88,50 @@
                     <tr>
                         <th></th>
                         <th>Grade</th>
-                        {% for assessment in evals.0.assessements %}
-                            <th>assessment.point_category.name</th>
+                        {% for category in point_categories %}
+                            <th>{{ category.name }}</th>
                         {% endfor %}
                         <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
+                {% for student in evals %}
                     <tr>
-                        <td>John<br>Smith</td>
-                        <td>85%</td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
+                        <td>{{ student.first_name }}<br>{{ student.last_name }}</td>
+                    {% if student.evaluation %}
+                       <td>{{ student.evaluation.grade_percent }}%</td>
+                        <td class="evaluations-5star" data-score="{{ student.evaluation.point_categories.0.score }}">
                             <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
+                            <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
                         </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
+                        <td class="evaluations-5star" data-score="{{ student.evaluation.point_categories.1.score }}">
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
                         </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
+                        <td class="evaluations-5star" data-score="{{ student.evaluation.point_categories.2.score }}">
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
+                        </td>
+                        <td class="evaluations-5star" data-score="{{ student.evaluation.point_categories.3.score }}">
+                            <span class='fui-star-2'></span>
+                            <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
                             <span class='fui-star-2'></span>
                         </td>
                         <td>Add</td>
                     </tr>
-                    <tr>
-                        <td>John<br>Smith</td>
-                        <td>85%</td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td>Add</td>
-                    </tr>
-                    <tr>
-                        <td>John<br>Smith</td>
-                        <td>85%</td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td><span class='fui-check fg-green'></span></td>
-                    </tr>
-                    <tr>
-                        <td>John<br>Smith</td>
-                        <td>85%</td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td class="evaluations-5star">
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2 text-primary'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                            <span class='fui-star-2'></span>
-                        </td>
-                        <td>Add</td>
-                    </tr>
+                    {% endif %}
+                {% endfor %}
                 </tbody>
             </table>
             <div class='pull-right btn-row'>
