@@ -192,7 +192,7 @@ def view_evaluation(request, course_stub, eval_id):
     week_count = 1
 
     while current_week < course.term.end_date:
-        weeks.append({week_count: str(current_week)})
+        weeks.append({'week_no': week_count, 'week_start': str(current_week)})
         week_count += 1
         current_week += timedelta(days=7)
 
