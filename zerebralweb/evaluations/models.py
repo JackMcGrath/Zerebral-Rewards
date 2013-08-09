@@ -14,6 +14,7 @@ class Evaluation(models.Model):
     student = models.ForeignKey(EnrolledStudent)
     course = models.ForeignKey(Course)
     assessments = models.ManyToManyField(Assessment)
+    submitted = models.BooleanField(default=False)
     week = models.IntegerField()
     grade_percent = models.IntegerField()
     engagement_percent = models.IntegerField()

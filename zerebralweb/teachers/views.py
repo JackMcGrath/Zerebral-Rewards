@@ -213,18 +213,25 @@ def view_evaluation(request, course_stub, week_no):
     week_count = 1
 
     while current_week < course.term.end_date:
-        weeks.append({'week_no': week_count, 'week_start': str(current_week)})
+        evals_for_this_week = (Evaluation.objects.filter(course=course, week=week_count, submitted=True).count() > 0)
+
+        weeks.append({'week_no': week_count, 'week_start': str(current_week), 'submitted': evals_for_this_week})
         week_count += 1
         current_week += timedelta(days=7)
 
     # grab all the evaluations from this week and course
     evals = Evaluation.objects.filter(course=course, week=week_no)
 
+    # TODO: handle update to evaluation models
     if request.method == 'POST':
         pass
-        # TODO: handle update to evaluation models
 
-    return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course, 'weeks': weeks, 'evals': evals})
+    return render(request, 'teachers/courses/evaluations.html', {
+        'courses': courses,
+        'course': course,
+        'weeks': weeks,
+        'evals': evals
+    })
 
 
 @permission_required('auth.is_teacher')
