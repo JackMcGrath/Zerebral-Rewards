@@ -28,6 +28,10 @@
 
   </head>
   <body>
+
+
+
+
     <!-- NAV -->
         <div class="navbar">
             <div class="navbar-inner">
@@ -70,6 +74,14 @@
 
     <!-- END NAV -->
 
+    <!-- BEGIN ERROR ALERTS -->
+    {% if error %}
+     <div class="dialog dialog-danger">
+        {{ error }}
+     </div>
+    {% endif %}
+
+    <!-- END ERROR ALERTS-->
 
 
     <!-- MAIN CONTENT -->

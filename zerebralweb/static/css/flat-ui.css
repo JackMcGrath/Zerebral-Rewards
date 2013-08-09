@@ -5747,6 +5747,7 @@ input.search-query {
   font-size: 15.988px;
   /* 16px */
 
+  margin-top: -20px;
   margin-bottom: 20px;
   padding: 18px 0;
   position: relative;
