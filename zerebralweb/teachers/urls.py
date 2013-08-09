@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'^courses/(?P<course_stub>\w+)/evaluations/(?P<eval_id>\w+)', 'teachers.views.view_evaluation'),
     # edit a course
     url(r'^courses/(?P<course_stub>\w+)/edit', 'teachers.views.edit_course'),
+    # delete student from course
+    url(r'^courses/(?P<course_stub>\w+)/roster/(?P<student_id>\w+)/remove', 'teachers.views.delete_student'),
     # add students to a course
     url(r'^courses/(?P<course_stub>\w+)/roster/add', 'teachers.views.add_students'),
     # view students of a course

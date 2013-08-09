@@ -25,6 +25,12 @@ def add_course(request):
 
     if request.method == 'POST':
         try:
+            if request.POST['course_name'] == '' or request.POST['course_id'] == '':
+                return render(request, 'teachers/courses/add_course.html', {
+                    'courses': courses,
+                    'error': 'Please enter a course name and ID.'
+                })
+
             class_name = request.POST['course_name']
             class_stub = make_stub(class_name)
             class_id = request.POST['course_id']
@@ -79,6 +85,7 @@ def edit_course(request, course_stub):
         class_name = request.POST['course_name']
         class_stub = make_stub(class_name)
         class_id = request.POST['course_id']
+        class_term = Term.objects.get(pk=int(request.POST['course_term']))
 
         if course is not None:
             # make sure the new stub doesn't already exist
@@ -87,6 +94,7 @@ def edit_course(request, course_stub):
             if stub_count == 0:
                 course.name = class_name
                 course.stub = class_stub
+                course.term = class_term
                 course.course_id = class_id
                 course.save()
 

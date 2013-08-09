@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from schools.models import School, Term, PointCategory
+from schools.models import School
 from django.contrib.auth.decorators import login_required
 from auth.models import ZerebralUser
 from django.contrib.auth.models import User, Permission
 from teachers.models import Teacher
 from students.models import Student
 from auth.helpers import *
-from datetime import datetime, timedelta
 from django.db import IntegrityError
 from parents.models import Parent
 

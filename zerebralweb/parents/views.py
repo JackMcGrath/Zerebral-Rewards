@@ -21,6 +21,7 @@ def consent(request, consent_token):
         if request.POST['digital_signature'] is not None and request.POST['digital_signature'] != '':
             if student is not None:
                 student.consent_from_parent = True
+                student.parent_token = ''
                 student.consent_signed_by = request.POST['digital_signature']
                 student.save()
 
