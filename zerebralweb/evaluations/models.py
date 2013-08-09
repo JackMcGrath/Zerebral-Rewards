@@ -8,9 +8,6 @@ class Assessment(models.Model):
     point_category = models.ForeignKey(PointCategory)
     score = models.IntegerField()
 
-    def __unicode__(self):
-        return unicode(self.point_category.name)
-
     def __getitem__(self, key):
         if key == 'pg':
             return unicode(self.point_category.name)
