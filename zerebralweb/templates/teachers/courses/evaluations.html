@@ -47,7 +47,17 @@
 
         },function(evt){
             //hover out
-            //somehow return stars to original value unless it was clicked
+            //return this assessment to its original score
+            original_score = $(this).parent().data("score");
+
+            //remove color from all stars
+            $(this).parent().children().removeClass('text-primary');
+
+            //re-add color to stars leading up to the one we're currently hovering
+            $(this).siblings().each(function(i,e){
+                if(i < original_score) $(e).addClass('text-primary');
+            });
+
         });
 
         //click logic for stars
@@ -57,11 +67,17 @@
             new_score = $(this).siblings().size()+1 - $(this).nextAll().size();
 
             // DO SOMETHING WITH NEW SCORE
-
             alert("new value "+ new_score);
 
         });
 
+        //set colors from initial score
+        $("tbody > tr > td.evaluations-5star").each(function(index, item){
+            score = $(this).data("score");
+            $(this).children().each(function(i,e){
+                if(i < score) $(e).addClass('text-primary');
+            });
+        });
 
     </script>
 
