@@ -28,6 +28,7 @@ def add_course(request):
             if request.POST['course_name'] == '' or request.POST['course_id'] == '':
                 return render(request, 'teachers/courses/add_course.html', {
                     'courses': courses,
+                    'terms': terms,
                     'error': 'Please enter a course name and ID.'
                 })
 
@@ -55,11 +56,13 @@ def add_course(request):
             else:
                 return render(request, 'teachers/courses/add_course.html', {
                     'courses': courses,
+                    'terms': terms,
                     'error': 'Class name already exists.'
                 })
         except:
             return render(request, 'teachers/courses/add_course.html', {
                 'courses': courses,
+                'terms': terms,
                 'error': 'Could not create class. Please try again.'
             })
 
@@ -181,6 +184,12 @@ def view_evaluation(request, course_stub, eval_id):
     class_teacher = get_teacher_for_user(request.user)
     courses = Course.objects.filter(teacher=class_teacher).order_by('name')
     course = Course.objects.get(stub=course_stub, teacher=class_teacher)
+
+    # TODO: calculate out weeks for term and send them to the template
+
+    if request.method == 'POST':
+        pass
+        # TODO: handle update to evaluation models
 
     return render(request, 'teachers/courses/evaluations.html', {'courses': courses, 'course': course})
 
