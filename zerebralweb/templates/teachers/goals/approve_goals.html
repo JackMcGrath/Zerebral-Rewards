@@ -1,5 +1,70 @@
-{% extends "teachers/base.html" %}
+{% extends 'teachers/base.html' %}
 
 {% block content %}
-approve goals
+    <div class='row'>
+        {% include "teachers/goals/partial_goals_navigation.html" %}
+        <div id='approvals' class='span8'>
+            <h6>Current Approvals Needed</h6>
+            <table class='table table-striped table-hover'>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Goal</th>
+                    <th>Points</th>
+                    <th>Used For</th>
+                    <th>Approval</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Brown</td>
+                        <td>4/12</td>
+                        <td>Free Hmwk</td>
+                        <td>150</td>
+                        <td>Wed Homework</td>
+                        <td>
+                            <div id='goal-approval-btns'>
+                                <a href="#fakelink" class='btn btn-mini bg-green text-center'>approve</a>
+                                <a href="#fakelink" class='btn btn-mini btn-danger text-center'>deny</a>
+                            </div>
+                        </td>
+                     </tr>
+                </tbody>
+            </table>
+            <div id='denial_reason'>
+                <label for='reason'>Reason for Denial</label>
+                <p name='reason' contenteditable='true' class='span7'>Type Denial Reason Here</p>
+                <a href="#fakelink" class='btn btn-primary btn-small denial-btn'>Send</a>
+            </div>
+            <h6>Previous Approvals</h6>
+       <table class='table table-striped table-hover'>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Goal</th>
+                    <th>Points</th>
+                    <th>Used For</th>
+                    <th>Approval</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sarah Brown</td>
+                        <td>4/12</td>
+                        <td>Free Hmwk</td>
+                        <td>150</td>
+                        <td>Wed Homework</td>
+                        <td>
+                            <div id='goal-approval-btns'>
+                                <a href="#fakelink" class='btn btn-mini bg-green text-center disabled'>approve</a>
+                                <a href="#fakelink" class='btn btn-mini btn-danger text-center'>deny</a>
+                            </div>
+                        </td>
+                     </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 {% endblock %}

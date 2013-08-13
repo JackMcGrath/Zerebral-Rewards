@@ -230,3 +230,19 @@ a.text-primary:focus {
 .goal-title {
     font-size:14px;
 }
+
+.add-goal-btn {
+    display: inline-block;
+    float:right;
+    clear:left;
+}
+
+.goal-desc {
+    width: 45% !important;
+    margin-left:16.5%;
+}
+
+#denial_reason {
+    border: 2px black solid;
+    padding: 2px;
+}
