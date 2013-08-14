@@ -1,52 +1,40 @@
-<div class="span2">
+<div id="teacher_nav" class="span2">
     <ul class="nav nav-list nav-list-vivid">
         <li class="nav-header">Dashboard</li>
-        <li><a href="/teacher/courses">
+        <li id="teacher_nav_courses">
+            <a href="/teacher/courses">
               <span class="fui-radio-unchecked">&nbsp;</span>
             Courses
           </a>
         </li>
-        <li>
+        <li id="teacher_nav_courses_add">
           <a href="/teacher/courses/add">
               <span class="fui-radio-unchecked">&nbsp;</span>
             Add Course
           </a>
         </li>
-        <li>
-          <a href="/teacher/courses/1">
-              <span class="fui-radio-unchecked">&nbsp;</span>
-            Spanish II
-          </a>
-        </li>
-        <li class='active'>
-          <a href="/teacher/courses/1/roster" class='nav-sub-link'>
-              <span class="fui-radio-checked">&nbsp;</span>
-            Roster
-          </a>
-        </li>
-        <li>
-          <a href="/teacher/courses/1/evaluations/1" class='nav-sub-link'>
-              <span class="fui-radio-unchecked">&nbsp;</span>
-            Evaluations
-          </a>
-        </li>
-        <li>
-          <a href="#fakelink">
-              <span class="fui-radio-unchecked">&nbsp;</span>
-            English
-          </a>
-        </li>
-        <li>
-          <a href="#fakelink" class='nav-sub-link'>
-              <span class="fui-radio-checked">&nbsp;</span>
-            Roster
-          </a>
-        </li>
-        <li>
-          <a href="#fakelink" class='nav-sub-link'>
-              <span class="fui-radio-unchecked">&nbsp;</span>
-            Evaluations
-          </a>
-        </li>
+
+        <!-- loop through courses -->
+        {% for course in courses %}
+            <li id="teacher_nav_courses_{{ course.stub }}">
+              <a href="/teacher/courses/{{ course.stub }}">
+                  <span class="fui-radio-unchecked">&nbsp;</span>
+                {{ course.name }}
+              </a>
+            </li>
+            <li id="teacher_nav_courses_{{ course.stub }}_roster">
+                <a href="/teacher/courses/{{ course.stub }}/roster" class='nav-sub-link'>
+                    <span class="fui-radio-unchecked">&nbsp;</span>
+                    Roster
+                </a>
+            </li>
+            <li id="teacher_nav_courses_{{ course.stub }}_evaluations">
+              <a href="/teacher/courses/{{ course.stub }}/evaluations" class='nav-sub-link'>
+                  <span class="fui-radio-unchecked">&nbsp;</span>
+                Evaluations
+              </a>
+            </li>
+        {% endfor %}
+        <!-- end courses loop-->
     </ul>
 </div>
