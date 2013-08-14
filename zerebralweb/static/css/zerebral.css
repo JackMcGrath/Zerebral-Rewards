@@ -114,6 +114,20 @@ a.text-primary:focus {
 .bg-orange {
     background-color: #F99E1F;
 }
+.bg-lightorange {
+    background-color: #ffae54;
+}
+
+.fg-orange {
+    color: #F99E1F;
+}
+.fg-lightorange {
+    color: #ffae54;
+}
+.fg-darkorange {
+    color: #9f5c1b;
+}
+
 
 .fg-green {
     color: green;

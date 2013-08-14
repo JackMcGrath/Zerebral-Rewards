@@ -35,15 +35,15 @@
             current_star = $(this).siblings().size() - $(this).nextAll().size();
 
             //remove color from all stars
-            $(this).siblings().removeClass('text-primary');
+            $(this).siblings().removeClass('fg-orange');
 
             //re-add color to stars leading up to the one we're currently hovering
             $(this).siblings().each(function(i,e){
-                if(i < current_star) $(e).addClass('text-primary');
+                if(i < current_star) $(e).addClass('fg-darkorange');
             });
 
             //add it to our current star
-            $(this).addClass('text-primary');
+            $(this).addClass('fg-darkorange');
 
         },function(evt){
             //hover out
@@ -51,11 +51,11 @@
             original_score = $(this).parent().data("score");
 
             //remove color from all stars
-            $(this).parent().children().removeClass('text-primary');
+            $(this).parent().children().removeClass('fg-darkorange');
 
             //re-add color to stars leading up to the one we're currently hovering
             $(this).siblings().each(function(i,e){
-                if(i < original_score) $(e).addClass('text-primary');
+                if(i < original_score) $(e).addClass('fg-orange');
             });
 
         });
