@@ -1,5 +1,17 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            var cur=$("#teacher_nav_actionplans_manage");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#actionplan-nav");
+            cur.addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class='row'>
         {% include "teachers/actionplans/partial_actionplans_navigation.html" %}
@@ -7,36 +19,51 @@
             <h6>Manage Action Plans</h6>
             <hr>
             <div class='ap'>
-            Name: Nick Schmidt<br>
-            Type: Weekly Plan
+                <div class='row'>
+                    <span class='span4'>
+                        Name: Shannon Brown<br>
+                        Type: Weekly Plan<br>
+                        Date Created: 3/14/25<br>
+                        Course: History<br>
+                        Goal: Pass Test on Friday
+                    </span>
+                    <span class='span4'>
+                        Actions:<br>
+                        1) Review Vocab from Ch. 4<br>
+                        2) Review Vocab from Ch. 5<br>
+                        3) Study for at least 30 minutes every night
+                    </span>
+                </div><br />
+                <div class='row'>
+                    <div class='span8'>
+                        <a href='#fakelink' class='span2 btn btn-mini add-goal-btn btn-info pull-right'>Approve</a>
+                        <a href='#fakelink' class='span2 btn btn-mini add-goal-btn btn-info pull-right'>Revise</a>
+                    </div>
+                </div>
             </div>
             <hr>
             <div class='ap'>
-                <span class='span4'>
-                    Name: Shannon Brown<br>
-                    Type: Weekly Plan<br>
-                    Date Created: 3/14/25<br>
-                    Course: History<br>
-                    Goal: Pass Test on Friday
-                </span>
-                <span>
-                    Actions:<br>
-                    1) Review Vocab from Ch. 4<br>
-                    2) Review Vocab from Ch. 5<br>
-                    3) Study for at least 30 minutes every night
-                </span>
-                <a href='#fakelink' class='span2 btn btn-mini add-goal-btn btn-info'>Revise</a>
-                <a href='#fakelink' class='span2 btn btn-mini add-goal-btn btn-info'>Approve</a>
-            </div>
-            <hr>
-            <div class='ap'>
-            Name: Sarah Keep<br>
-            Type: Long Term
-            </div>
-            <hr>
-            <div classs='ap'>
-            Name: Nick Schmidt<br>
-            Type: Weekly Plan
+                <div class='row'>
+                    <span class='span4'>
+                        Name: Shannon Brown<br>
+                        Type: Weekly Plan<br>
+                        Date Created: 3/14/25<br>
+                        Course: History<br>
+                        Goal: Pass Test on Friday
+                    </span>
+                    <span class='span4'>
+                        Actions:<br>
+                        1) Review Vocab from Ch. 4<br>
+                        2) Review Vocab from Ch. 5<br>
+                        3) Study for at least 30 minutes every night
+                    </span>
+                </div><br />
+                <div class='row'>
+                    <div class='span8'>
+                        <a href='#fakelink' class='span2 btn btn-mini add-goal-btn btn-info pull-right'>Approve</a>
+                        <a href='#fakelink' class='span2 btn btn-mini add-goal-btn btn-info pull-right'>Revise</a>
+                    </div>
+                </div>
             </div>
             <hr>
         </div>

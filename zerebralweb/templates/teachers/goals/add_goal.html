@@ -1,23 +1,40 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            var cur=$("#teacher_nav_goals_add");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#goal-nav");
+            cur.addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
-    <div class="row">
+    <div class='row'>
         {% include "teachers/goals/partial_goals_navigation.html" %}
-    <div id='add_goal'>
-        <form name='add_goal_form' action='POST'>
-            <label for='goal_name'>Name</label>
-            <div class='control-group small'>
-                <input name='goal_name' type='text' class='span5'/>
+        <div class='span8'>
+            <h6>Create Goal</h6>
+            <hr>
+            <div id='add_goal'>
+                <form name='add_goal_form' action='POST'>
+                    <label for='goal_name'>Name</label>
+                    <div class='control-group small'>
+                        <input name='goal_name' type='text' class='span5'/>
+                    </div>
+                    <label for='required_points'>Number of Points Needed</label>
+                    <div class='control-group small'>
+                        <input name='required_points' type='text' class='span5'/>
+                    </div>
+                    <label for='description'>Description of Reward</label>
+                    <textarea name='description' class='goal-desc' rows='2'></textarea><br /><br />
+                    <a href='#fakelink' class='span2 btn btn-small preview-goal-btn btn-info'>Preview</a>
+                    <a href='#fakelink' class='span2 btn btn-small add-goal-btn btn-info'>Submit</a>
+                    <br /><br />
+                </form>
             </div>
-            <label for='required_points'>Number of Points Needed</label>
-            <div class='control-group small'>
-                <input name='required_points' type='text' class='span5'/>
-            </div>
-            <label for='description'>Description of Reward</label>
-            <textarea name='description' class='goal-desc' rows='2'></textarea>
-            <a href='#fakelink' class='span2 btn btn-small add-goal-btn btn-info'>Preview</a>
-            <a href='#fakelink' class='span2 btn btn-small add-goal-btn btn-info'>Submit</a
-        </form>
-    </div>
+        </div>
     </div>
 {% endblock %}

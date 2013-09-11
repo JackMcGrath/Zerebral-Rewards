@@ -1,5 +1,17 @@
 {% extends 'teachers/base.html' %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            var cur=$("#teacher_nav_goals_approvals");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#goal-nav");
+            cur.addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
     <div class='row'>
         {% include "teachers/goals/partial_goals_navigation.html" %}

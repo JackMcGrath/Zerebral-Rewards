@@ -6,6 +6,8 @@
             var cur=$("#teacher_nav_courses_add");
             cur.addClass('active');
             $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#home-nav");
+            cur.addClass('active');
         });
     </script>
 
@@ -40,21 +42,16 @@
                         <input name="course_id" type="text" value="" placeholder="SCI-101" class="span4">
                     </div>
                 </div>
+                <br />
                 <div class="row">
-                    <div class="span4 offset2">
+                    <div class="span3 offset2">
                         <select name='course_term' class='select mbl'>
                             {% for term in terms %}
                             <option value='{{ term.pk }}'>{{ term.alias }}</option>
                             {% endfor %}
                         </select>
                     </div>
-                </div>
-
-
-                <br/>
-
-                <div class="row">
-                    <div class="span4 offset2 control-group huge">
+                    <div class="span1 control-group huge">
                         <input type="submit" value="Create" class='btn btn-large btn-primary pull-right' href="#fakelink"></a>
                     </div>
                 </div>

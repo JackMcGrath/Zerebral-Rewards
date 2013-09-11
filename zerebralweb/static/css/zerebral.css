@@ -1,3 +1,12 @@
+html, body {
+    height: 100%
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 120px;
+}
+
 a.zerebral-logo {
     display: block;
     width: 80px;
@@ -245,15 +254,16 @@ a.text-primary:focus {
     font-size:14px;
 }
 
+.preview-goal-btn {
+    margin-left: 0px;
+}
+
 .add-goal-btn {
-    display: inline-block;
-    float:right;
-    clear:left;
+    margin-left: 20px;
 }
 
 .goal-desc {
     width: 45% !important;
-    margin-left:16.5%;
 }
 
 #denial_reason {

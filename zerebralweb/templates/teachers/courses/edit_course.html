@@ -1,5 +1,26 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            var cur=$("#teacher_nav_courses_{{course.stub}}");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#home-nav");
+            cur.addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
-edit course
+    <div class="row">
+        {% include "teachers/courses/partial_courses_navigation.html" %}
+        <div class="span8">
+             <div class="row text-center student-overview-header">
+                 <h3>Editing {{ course.name }}</h3>
+            </div>
+            <br/><br/>
+        </div>
+    </div>
+
 {% endblock %}

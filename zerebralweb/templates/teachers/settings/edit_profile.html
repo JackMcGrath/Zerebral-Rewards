@@ -1,5 +1,23 @@
 {% extends "teachers/base.html" %}
 
+{% block script-extra %}
+    <script>
+        $(document).ready(function(){
+            var cur=$("#teacher_nav_settings");
+            cur.addClass('active');
+            $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#settings-nav");
+            cur.addClass('active');
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
-edit profile
+    <div class='row'>
+        {% include "teachers/settings/partial_settings_navigation.html" %}
+        <div class='span8'>
+            <h6>Edit Profile</h6>
+            <hr>
+        </div>
+    </div>
 {% endblock %}

@@ -6,6 +6,8 @@
             var cur=$("#teacher_nav_courses_{{course.stub}}");
             cur.addClass('active');
             $("a > span", cur).removeClass('fui-radio-unchecked').addClass('fui-radio-checked');
+            cur=$("#home-nav");
+            cur.addClass('active');
         });
     </script>
 {% endblock %}
